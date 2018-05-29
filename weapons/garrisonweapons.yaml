@@ -140,7 +140,3 @@ GFloatTesla:
 GFloatGlaive:
 	Inherits: FloatGlaive
 	Inherits@1: ^GarrisonWeapon
-
-GFloatGlaiveAA:
-	Inherits: FloatGlaiveAA
-	Inherits@1: ^GarrisonWeapon

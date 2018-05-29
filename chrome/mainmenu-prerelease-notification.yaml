@@ -11,7 +11,7 @@ Background@MAINMENU_PRERELEASE_NOTIFICATION:
 			Height: 25
 			Font: Bold
 			Align: Center
-			Text: Shattered Wars Release disclaimer
+			Text: Shattered Paradise Release disclaimer
 		Label@PROMPT_TEXT_A:
 			X: 15
 			Y: 50
@@ -32,35 +32,35 @@ Background@MAINMENU_PRERELEASE_NOTIFICATION:
 			Width: PARENT_RIGHT - 30
 			Height: 16
 			Align: Center
-			Text: This mod is based on CnC3: Tiberium Wars.
+			Text: While many features are missing or incomplete, we consider that the game is in
 		Label@PROMPT_TEXT_D:
 			X: 15
 			Y: 122
 			Width: PARENT_RIGHT - 30
 			Height: 16
 			Align: Center
-			Text: a playable state. Even though limited by the engine we are
+			Text: a playable state. You can expect more improvements to come over time as the
 		Label@PROMPT_TEXT_E:
 			X: 15
 			Y: 140
 			Width: PARENT_RIGHT - 30
 			Height: 16
 			Align: Center
-			Text:  trying to implement the modern gameplay of CnC3
+			Text:  base mod is being worked on, but Shattered Paradise is by no means the
 		Label@PROMPT_TEXT_F:
 			X: 15
 			Y: 158
 			Width: PARENT_RIGHT - 30
 			Height: 16
 			Align: Center
-			Text: into OpenRA for everyone to enjoy.
+			Text: Responsability of the OpenRA developers.
 		Label@PROMPT_TEXT_G:
 			X: 15
 			Y: 194
 			Width: PARENT_RIGHT - 30
 			Height: 16
 			Align: Center
-			Text:  All Hail ZxGanon!
+			Text:  Finally, most of the balance is done at this point, its unlikely that it will change.
 		Label@PROMPT_TEXT_G:
 			X: 15
 			Y: 176

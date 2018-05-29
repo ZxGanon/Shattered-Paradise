@@ -667,6 +667,46 @@ CloudDamage:
 		Versus:
 			InfantryArmor: 300
 
+FalconPunch:
+	Inherits: ^BombWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ValidTargets: Ground, Water, Water
+	ReloadDelay: 1
+	MinRange: 0c100
+	Range: 3c0
+	Projectile: Missile
+		TerrainHeightAware: True
+		CruiseAltitude: 6000
+		MinimumLaunchAngle: 300
+		MaximumLaunchAngle: 300
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		Speed: 0c600
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c181
+		Image: DRAGON
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
+		RangeLimit: 28c291
+		Palette: effect
+		AllowSnapping: true
+		CloseEnough: 200
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 27000
+		ValidTargets: Ground, Water, Water
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeath
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
+		FallRate: 5000
+		Range: 3
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2, 3
+		Level: 600
+		Falloff: 100, 50, 25
+		MaxLevel: 1000
+
 LeonidCannon:
 	Inherits: ^APWarhead
 	Inherits@2: ^Large_Clsn

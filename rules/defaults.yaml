@@ -849,7 +849,6 @@
 	Inherits@1: ^EmpDisable
 	Inherits@2: ^SpawnSmoke
 	Inherits@3: ^SpawnSpark
-	Inherits@4: ^MindControllable
 
 ^InfantryEffects:
 	Inherits: ^GenericEffects
@@ -863,7 +862,6 @@
 	Inherits@8: ^DisplayVanguardShield
 	Inherits@9: ^DamagedByRadioactivity
 	Inherits@10: ^WolfDebuff
-	Inherits@11: ^MindControllable
 
 ^VehicleEffects:
 	Inherits: ^GenericEffects
@@ -1025,9 +1023,6 @@
 	WithMakeAnimation:
 	EditorTilesetFilter:
 		Categories: Buildable Structure
-	RequiresBuildableArea:
-		AreaTypes: building
-		Adjacent: 9999
 
 ^Defence:
 	Inherits: ^Building
