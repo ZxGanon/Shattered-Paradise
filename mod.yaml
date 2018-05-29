@@ -1,8 +1,8 @@
 Metadata:
-	Title: Shattered Paradise
-	Description: Live the Second Tiberium War in a perspective you have never seen before.\nFind your place in this apocalyptic wasteland and make your enemies fear you!\n\nShattered Paradise that brings three new factions to Tiberian Sun and\ntries to mimic the gameplay style of the original game while also adding\nmore content to the game like units and mechanics.
-	Version: {Build 20180525}
-	Author: Nolt, with the help of a lot of people.
+	Title: Shattered Wars
+	Description: The sequel of the Second Tiberium War in Shattered Paradise.\nModern gameplay with an competitive environment awaits you.
+	Version: {SWBuild 20180528}
+	Author: Nolt and ZxGanon.
 
 PackageFormats: Mix
 
@@ -12,7 +12,7 @@ Packages:
 	.
 	./mods/common: common
 	./mods/as: as
-	$sp: sp
+	$sw: sw
 	$ts: ts
 # Tiberian Sun
 	~scores.mix
@@ -47,122 +47,122 @@ Packages:
 	~e01vox01.mix
 	~e01vox02.mix
 	~ecache01.mix
-	sp|bits
-	sp|bits/neutral/anims/explosions
-	sp|bits/pal
-	sp|bits/gdi/infantry
-	sp|bits/nod/infantry
-	sp|bits/mutant/infantry
-	sp|bits/cabal/infantry
-	sp|bits/scrin/infantry
-	sp|bits/gdi/vehicles
-	sp|bits/nod/vehicles
-	sp|bits/mutant/vehicles
-	sp|bits/cabal/vehicles
-	sp|bits/scrin/vehicles
-	sp|bits/gdi/structures
-	sp|bits/nod/structures
-	sp|bits/mutant/structures
-	sp|bits/mutant/structures/temperate
-	sp|bits/cabal/structures
-	sp|bits/cabal/structures/temperate
-	sp|bits/scrin/structures/temperate
-	sp|bits/scrin/structures
-	sp|bits/gdi/anims
-	sp|bits/nod/anims
-	sp|bits/mutant/anims
-	sp|bits/cabal/anims
-	sp|bits/scrin/anims
-	sp|bits/neutral/anims
-	sp|bits/gdi/audio
-	sp|bits/nod/audio
-	sp|bits/mutant/audio
-	sp|bits/cabal/audio
-	sp|bits/scrin/audio
-	sp|bits/neutral/audio
-	sp|bits/gdi/audio/voice
-	sp|bits/gdi/audio/eva
-	sp|bits/nod/audio/voice
-	sp|bits/nod/audio/eva
-	sp|bits/mutant/audio/eva
-	sp|bits/scrin/audio/eva
-	sp|bits/cabal/audio/eva
-	sp|bits/mutant/audio/voice
-	sp|bits/cabal/audio/voice
-	sp|bits/scrin/audio/voice
-	sp|bits/neutral/audio/voice
-	sp|bits/scrin/air
-	sp|bits/nod/effects
-	sp|bits/neutral
-	sp|bits/neutral/structures
-	sp|bits/neutral/swicons
-	sp|uibits
+	sw|bits
+	sw|bits/neutral/anims/explosions
+	sw|bits/pal
+	sw|bits/gdi/infantry
+	sw|bits/nod/infantry
+	sw|bits/mutant/infantry
+	sw|bits/cabal/infantry
+	sw|bits/scrin/infantry
+	sw|bits/gdi/vehicles
+	sw|bits/nod/vehicles
+	sw|bits/mutant/vehicles
+	sw|bits/cabal/vehicles
+	sw|bits/scrin/vehicles
+	sw|bits/gdi/structures
+	sw|bits/nod/structures
+	sw|bits/mutant/structures
+	sw|bits/mutant/structures/temperate
+	sw|bits/cabal/structures
+	sw|bits/cabal/structures/temperate
+	sw|bits/scrin/structures/temperate
+	sw|bits/scrin/structures
+	sw|bits/gdi/anims
+	sw|bits/nod/anims
+	sw|bits/mutant/anims
+	sw|bits/cabal/anims
+	sw|bits/scrin/anims
+	sw|bits/neutral/anims
+	sw|bits/gdi/audio
+	sw|bits/nod/audio
+	sw|bits/mutant/audio
+	sw|bits/cabal/audio
+	sw|bits/scrin/audio
+	sw|bits/neutral/audio
+	sw|bits/gdi/audio/voice
+	sw|bits/gdi/audio/eva
+	sw|bits/nod/audio/voice
+	sw|bits/nod/audio/eva
+	sw|bits/mutant/audio/eva
+	sw|bits/scrin/audio/eva
+	sw|bits/cabal/audio/eva
+	sw|bits/mutant/audio/voice
+	sw|bits/cabal/audio/voice
+	sw|bits/scrin/audio/voice
+	sw|bits/neutral/audio/voice
+	sw|bits/scrin/air
+	sw|bits/nod/effects
+	sw|bits/neutral
+	sw|bits/neutral/structures
+	sw|bits/neutral/swicons
+	sw|uibits
 
 MapFolders:
-	# sp|maps: System
-	sp|maps/ww: System
-	sp|maps/meme: System
-	sp|maps/balanced: System
-	sp|maps/coop: System
+	# sw|maps: System
+	sw|maps/ww: System
+	sw|maps/meme: System
+	sw|maps/balanced: System
+	sw|maps/coop: System
 	~^maps/sp/{DEV_VERSION}: User
 
 Rules:
-	sp|rules/ai.yaml
-	sp|rules/player.yaml
-	sp|rules/world.yaml
-	sp|rules/palettes.yaml
-	sp|rules/defaults.yaml
-	sp|rules/infantry.yaml
-	sp|rules/vehicles.yaml
-	sp|rules/aircraft.yaml
-	sp|rules/sharedrules.yaml
-	sp|rules/structures.yaml
-	sp|rules/support.yaml
-	sp|rules/civilianrules.yaml
-	sp|rules/husks.yaml
-	sp|rules/bridges.yaml
-	sp|rules/trees.yaml
-	sp|rules/misc.yaml
-	sp|rules/dummies.yaml
+	sw|rules/ai.yaml
+	sw|rules/player.yaml
+	sw|rules/world.yaml
+	sw|rules/palettes.yaml
+	sw|rules/defaults.yaml
+	sw|rules/infantry.yaml
+	sw|rules/vehicles.yaml
+	sw|rules/aircraft.yaml
+	sw|rules/sharedrules.yaml
+	sw|rules/structures.yaml
+	sw|rules/support.yaml
+	sw|rules/civilianrules.yaml
+	sw|rules/husks.yaml
+	sw|rules/bridges.yaml
+	sw|rules/trees.yaml
+	sw|rules/misc.yaml
+	sw|rules/dummies.yaml
 
 Weapons:
-	sp|weapons/weapondefaults.yaml
-	sp|weapons/explodefaults.yaml
-	sp|weapons/neutralweapons.yaml
-	sp|weapons/explosionweapons.yaml
-	sp|weapons/superweapons.yaml
-	sp|weapons/vanillaweapons.yaml
-	sp|weapons/gdiweapons.yaml
-	sp|weapons/nodweapons.yaml
-	sp|weapons/mutweapons.yaml
-	sp|weapons/cabweapons.yaml
-	sp|weapons/scrweapons.yaml
-	sp|weapons/garrisonweapons.yaml
+	sw|weapons/weapondefaults.yaml
+	sw|weapons/explodefaults.yaml
+	sw|weapons/neutralweapons.yaml
+	sw|weapons/explosionweapons.yaml
+	sw|weapons/superweapons.yaml
+	sw|weapons/vanillaweapons.yaml
+	sw|weapons/gdiweapons.yaml
+	sw|weapons/nodweapons.yaml
+	sw|weapons/mutweapons.yaml
+	sw|weapons/cabweapons.yaml
+	sw|weapons/scrweapons.yaml
+	sw|weapons/garrisonweapons.yaml
 
 Sequences:
-	sp|sequences/misc.yaml
-	sp|sequences/explosions.yaml
-	sp|sequences/seqdefaults.yaml
-	sp|sequences/civseq.yaml
-	sp|sequences/sharedseq.yaml
-	sp|sequences/nodseq.yaml
-	sp|sequences/neutralseq.yaml
-	sp|sequences/goddamdepthspritebugs.yaml
-	sp|sequences/proc.yaml
-	sp|sequences/mutseq.yaml
-	sp|sequences/trees.yaml
-	sp|sequences/gdiseq.yaml
-	sp|sequences/cabseq.yaml
-	sp|sequences/scrseq.yaml
-	sp|sequences/bridges.yaml
-	sp|sequences/mufactory.yaml
+	sw|sequences/misc.yaml
+	sw|sequences/explosions.yaml
+	sw|sequences/seqdefaults.yaml
+	sw|sequences/civseq.yaml
+	sw|sequences/sharedseq.yaml
+	sw|sequences/nodseq.yaml
+	sw|sequences/neutralseq.yaml
+	sw|sequences/goddamdepthspritebugs.yaml
+	sw|sequences/proc.yaml
+	sw|sequences/mutseq.yaml
+	sw|sequences/trees.yaml
+	sw|sequences/gdiseq.yaml
+	sw|sequences/cabseq.yaml
+	sw|sequences/scrseq.yaml
+	sw|sequences/bridges.yaml
+	sw|sequences/mufactory.yaml
 
 ModelSequences:
-	sp|sequences/voxels.yaml
+	sw|sequences/voxels.yaml
 
 TileSets:
-	sp|tilesets/temperate.yaml
-	sp|tilesets/snow.yaml
+	sw|tilesets/temperate.yaml
+	sw|tilesets/snow.yaml
 
 MapGrid:
 	TileSize: 48,24
@@ -176,7 +176,7 @@ Cursors:
 	ts|cursors.yaml
 
 Chrome:
-	sp|chrome.yaml
+	sw|chrome.yaml
 
 Assemblies:
 	common|OpenRA.Mods.Common.dll
@@ -193,14 +193,14 @@ ChromeLayout:
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
-	sp|chrome/ingame-observer.yaml
+	sw|chrome/ingame-observer.yaml
 	ts|chrome/ingame-observerstats.yaml
-	sp|chrome/ingame-player.yaml #The only file of chromes that is on SP
+	sw|chrome/ingame-player.yaml #The only file of chromes that is on SP
 	common|chrome/ingame-perf.yaml
 	ts|chrome/ingame-debug.yaml
 	common|chrome/ingame-infochat.yaml
 	common|chrome/mainmenu.yaml
-	sp|chrome/mainmenu-prerelease-notification.yaml
+	sw|chrome/mainmenu-prerelease-notification.yaml
 	common|chrome/settings.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
@@ -227,18 +227,18 @@ ChromeLayout:
 	common|chrome/editor.yaml
 
 Voices:
-	sp|audio/voices.yaml
+	sw|audio/voices.yaml
 
 Notifications:
-	sp|audio/speech-generic.yaml
-	sp|audio/speech-singleplayer.yaml
-	sp|audio/sounds-generic.yaml
+	sw|audio/speech-generic.yaml
+	sw|audio/speech-singleplayer.yaml
+	sw|audio/sounds-generic.yaml
 
 Music:
-	sp|audio/music.yaml
+	sw|audio/music.yaml
 
 Translations:
-	sp|languages/english.yaml
+	sw|languages/english.yaml
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -249,8 +249,8 @@ Hotkeys:
 	ts|hotkeys.yaml
 
 LoadScreen: LogoStripeLoadScreen
-	Image: sp|uibits/loadscreen.png
-	Text: Exterminating the Martian race..., Sending the tacitus to Earth..., Developing human civilization..., Allowing Tiberium to go rampant...,Increasing political tension..., Finishing the TD Campaign..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Making sure Nolt doesn't understand the next exception...,Nerfing your favourite unit... 
+	Image: sw|uibits/loadscreen.png
+	Text: Mutating mankind..., Kane has the Tacitus again..., Harvesting Ichor..., ZxGanon´s judgement...,Cleansing the earth for the Overlord..., Fucking Engine..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Competition is evolution...,Perfect is shit... 
 
 ServerTraits:
 	LobbyCommands

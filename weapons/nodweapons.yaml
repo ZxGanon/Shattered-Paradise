@@ -43,7 +43,7 @@ CrusaderBazooka:
 	Projectile: Missile
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Air
-		Damage: 3000
+		Damage: 4000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
@@ -183,6 +183,48 @@ Tick90mm:
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+ScorpionCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 75
+	Range: 6c0
+	Report: 120mmf.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+BikeMissile:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 85
+	Burst: 2
+	BurstDelays: 10
+	Range: 6c0
+	Report: hovrmis1.aud
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	Projectile: Missile
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 128
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+		InvalidTargets: Air
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+BikeMissileAA:
+	Inherits: HoverMissile
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
 DevilsFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch
@@ -293,10 +335,8 @@ SUBAPCTRAIL:
 BCLazor:
 	Inherits: ^FullDamage
 	Inherits@2: ^Large_Explosion
-	ReloadDelay: 200
-	Burst: 4
-	BurstDelays: 10
-	Range: 12c0
+	ReloadDelay: 20
+	Range: 10c0
 	Report: laserchaingunfire.wav
 	MinRange: 3c0
 	Projectile: LaserZap
@@ -309,10 +349,9 @@ BCLazor:
 		SecondaryBeamZOffset: 4000
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 4000
+		Spread: 0c64
+		Damage: 400
 		Versus:
-			BuildingArmor: 150
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 SpectreCannon:

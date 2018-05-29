@@ -51,11 +51,11 @@ MCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
-		Prerequisites: ~gaweap, gadept
+		Prerequisites: ~gaweap
 		BuildAtProductionType: Tank
-		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Cannot be mindcontrolled.
+		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures\n- Can crush infantry\n- Cannot be mindcontrolled
 	Valued:
-		Cost: 2000
+		Cost: 3500
 	Tooltip:
 		Name: Mobile Construction Vehicle
 	Selectable:
@@ -69,8 +69,6 @@ MCV:
 		Speed: 45
 		TurnSpeed: 5
 		Crushes: wall, crate, infantry
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	-Capturable:
@@ -139,8 +137,6 @@ HARV:
 			Veins: 100
 	Health:
 		HP: 50000
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
 	Armor:
 		Type: VehicleArmor
 	-GainsExperience:
@@ -183,22 +179,6 @@ harv.nod:
 		Image: nodharv
 		-FactionImages:
 
-harv.mut:
-	Inherits: HARV
-	Buildable:
-		Prerequisites: ~disabled
-	RenderSprites:
-		Image: mutharv
-		-FactionImages:
-
-harv.cab:
-	Inherits: HARV
-	Buildable:
-		Prerequisites: ~disabled
-	RenderSprites:
-		Image: cabharv
-		-FactionImages:
-
 SCRHARV:
 	Inherits: HARV
 	Inherits@1: ^ScrinVehicle
@@ -212,8 +192,6 @@ SCRHARV:
 		InitialActivity: FindResources
 	Mobile:
 		Crushes: wall, crate, infantry, RazorShark
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
 	Capturable:
 		CaptureThreshold: 60
 	-GainsExperience:
@@ -237,49 +215,6 @@ SCRHARV:
 		Image: scrsmoke
 		Palette: apolbluealpha60
 
-LPST:
-	Inherits: ^VoxelVehicle
-	-AppearsOnRadar:
-	-GainsExperience:
-	Valued:
-		Cost: 950
-	Tooltip:
-		Name: Mobile Sensor Array
-		Description: Can detect cloaked and subterranean\nunits when deployed.\n  Unarmed
-	Health:
-		HP: 60000
-	Armor:
-		Type: BuildingArmor
-	Mobile:
-		Speed: 85
-		TurnSpeed: 5
-	RenderSprites:
-		Image: lpst.gdi
-		FactionImages:
-			gdi: lpst.gdi
-			nod: lpst.nod
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed, notmobile
-		UndeployedCondition: undeployed
-		DeployAnimation: make
-		Facing: 160
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
-		DeploySound: place2.aud
-		UndeploySound: clicky1.aud
-	WithVoxelBody:
-		Image: lpst
-		RequiresCondition: undeployed
-		ConditionMinEnabledLevel: 1
-	WithSpriteBody@deployed:
-		RequiresCondition: undeployed
-		ConditionMaxEnabledLevel: 0
-	DetectCloaked:
-		RequiresCondition: deployed
-		ConditionMinEnabledLevel: 1
-		Range: 18c0
-	RenderDetectionCircle:
-		TrailCount: 3
-
 GACNST:
 	Inherits: ^Building
 	Inherits@4: ^3x3Shape
@@ -291,17 +226,31 @@ GACNST:
 		Queue: Building
 		BuildPaletteOrder: 1000
 		Prerequisites: ~disabled
+	Production@Building:
+		Produces: Building
+	Production@Defense:
+		Produces: Defense
+    ProductionQueue@Building:
+        Type: Building
+        Group: Building
+		BuildDurationModifier: 41
+        LowPowerSlowdown: 2
+    ProductionQueue@Defense:
+        Type: Defense
+        Group: Defense
+		BuildDurationModifier: 41
+        LowPowerSlowdown: 2
 	Health:
 		HP: 240000
 	Production:
 		Produces: Building, Defense
 	Valued:
-		Cost: 2000
+		Cost: 3500
 	Tooltip:
 		Name: Construction Yard
 		Description: Builds base structures.
 	BaseProvider:
-		Range: 20c0
+		Range: 14c0
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, MindControlInmune
 	BaseBuilding:
@@ -397,6 +346,11 @@ GACNST:
 	Inherits@1: ^ProducesStuff
 	Valued:
 		Cost: 500
+    ProductionQueue:
+        Type: Infantry
+        Group: Infantry
+		BuildDurationModifier: 41
+        LowPowerSlowdown: 2
 	ProvidesPrerequisite:
 		Prerequisite: barracks
 	ProximityExternalCondition@hospitalheal:
@@ -470,7 +424,7 @@ PROC:
 		Sequence: flame
 		Palette: effect
 	Power:
-		Amount: -30
+		Amount: -40
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
 		Description: Tiberium Refinery
@@ -534,7 +488,7 @@ FLIPPEDPROC:
 		Sequence: flame
 		Palette: effect
 	Power:
-		Amount: -30
+		Amount: -40
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
 		Description: Tiberium Refinery
@@ -559,6 +513,11 @@ FLIPPEDPROC:
 	Building:
 		Footprint: xxx= xxx= xxx=
 		Dimensions: 4,3
+    ProductionQueue:
+        Type: Vehicle
+        Group: Vehicle
+		BuildDurationModifier: 41
+        LowPowerSlowdown: 2
 	Selectable:
 		Bounds: 100, 70, -30, -24
 		DecorationBounds: 102, 70, -26, -24
@@ -582,7 +541,7 @@ FLIPPEDPROC:
 	PrimaryBuilding:
 	ProductionBar:
 	Power:
-		Amount: -30
+		Amount: -40
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -602,9 +561,14 @@ FLIPPEDPROC:
 	Exit@1:
 		SpawnOffset: 0,-256,0
 	Valued:
-		Cost: 500
+		Cost: 1500
 	Production:
 		Produces: Air
+    ProductionQueue:
+        Type: Air
+        Group: Air
+		BuildDurationModifier: 41
+        LowPowerSlowdown: 2
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
@@ -682,11 +646,11 @@ GADEPT:
 		Cost: 700
 	Tooltip:
 		Name: Service Depot
-	Buildable:
-		BuildPaletteOrder: 5
-		Prerequisites: ~humanstuff, Vehicle or Aircraft production
-		Queue: Building
-		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.#\n-Repairs nearby vehicles for free.
+#	Buildable:
+#		BuildPaletteOrder: 5
+#		Prerequisites: ~humanstuff, Vehicle or Aircraft production
+#		Queue: Building
+#		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.#\n-Repairs nearby vehicles for free.
 	Building:
 		Footprint: =x= xxx =x=
 		Dimensions: 3,3
@@ -735,30 +699,10 @@ GADEPT:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-SCRDEPOT:
-	Inherits: GADEPT
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Buildable:
-		Prerequisites:  Vehicle or Aircraft production, ~structures.scr
-	Tooltip:
-		Name: Scrin Maintenance Depot
-	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-	RenderSprites:
-		Image: scrdepot
-		-FactionImages:
-	-WithIdleOverlay@LIGHT:
-	-WithIdleOverlay@GROUND:
-	-WithIdleOverlay@CIRCUITS:
-	-WithRepairOverlay@CRANE:
-	-WithRepairOverlay@PLATFORM:
-	-WithDeathAnimation@BIB:
-
 ^TechCenter:
 	Inherits: ^Building
 	Valued:
-		Cost: 2000
+		Cost: 4000
 	ProvidesPrerequisite:
 		Prerequisite: tech
 	Building:
@@ -940,27 +884,6 @@ NAFNCE:
 		Bounds: 48, 24
 	-EditorTilesetFilter:
 
-MUTWALL:
-	Inherits: ^Wall
-	Inherits@2: ^MutRender
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 3
-		Description: Stops infantry, Vehicles and blocks enemy fire.
-		Prerequisites: ~structures.mut
-	SoundOnDamageTransition:
-		DamagedSounds:
-		DestroyedSounds:
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Forgotten Wall
-	-Cloak@CLOAKGENERATOR:
-	RenderSprites:
-		Image: wall.mut
-	LineBuild:
-		NodeTypes: wall, turret
-
 SCRWALL:
 	Inherits: ^Wall
 	Inherits@2: ^ScrinRender
@@ -1041,7 +964,7 @@ TRNSPORT:
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.\n- Works as an APC (vehicle moves into carryall)
 		Queue: Air
 		BuildPaletteOrder: 2
-		Prerequisites: ~humanstuff, gadept
+		Prerequisites: ~humanstuff
 	Aircraft:
 		LandWhenIdle: True
 		RepulsionSpeed: 40
@@ -1149,116 +1072,6 @@ trnsport.nod:
 	RenderSprites:
 		Image: nodcarryall
 
-trnsport.mut:
-	Inherits: TRNSPORT
-	Buildable:
-		Prerequisites: ~disabled
-	RenderSprites:
-		-FactionImages:
-		Image: forgcarryall
-	WithIdleOverlay@1Air:
-		RequiresCondition: airborne && !loaded
-	WithIdleOverlay@2Ground:
-		RequiresCondition: !airborne && !loaded
-	WithIdleOverlay@3Air:
-		RequiresCondition: airborne && !loaded
-	WithIdleOverlay@4Ground:
-		RequiresCondition: !airborne && !loaded
-	WithIdleOverlay@5Air:
-		RequiresCondition: airborne && loaded
-	WithIdleOverlay@6Ground:
-		RequiresCondition: !airborne && loaded
-	WithIdleOverlay@7Air:
-		RequiresCondition: airborne && loaded
-	WithIdleOverlay@8Ground:
-		RequiresCondition: !airborne && loaded
-
-trnsport.cab:
-	Inherits: trnsport.gdi
-	RenderSprites:
-		Image: cabcarryall
-
-NAPULS:
-	Inherits: ^Defence
-	Inherits@4: ^2x2Shape
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: EMP Cannon
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 32
-		Prerequisites: ~humanstuff, radar
-		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate.\n- Cannot be disabled.
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Selectable:
-		Bounds: 78, 54, 0, -12
-		DecorationBounds: 78, 54, 0, -12
-	GrantConditionOnPowerState@LOWPOWER:
-		Condition: lowpower
-		ValidPowerStates: Low, Critical
-	-ToggleConditionOnOrder:
-	Health:
-		HP: 100000
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 300
-	AttackTurreted:
-	Armament:
-		Weapon: EMPulseCannon
-		LocalOffset: 200,0,1500
-		LocalYaw: 0,100
-	WithSpriteTurret:
-		Sequence: turret
-	Power:
-		Amount: -150
-	SelectionDecorations:
-	RenderSprites:
-		Image: napuls.gdi
-		FactionImages:
-			gdi: napuls.gdi
-			nod: napuls.nod
-			mut: napuls.mut
-			cab: napuls.cab
-	ProvidesPrerequisite@gdi:
-		Prerequisite: emp.gdi
-		Factions: gdi, mut, nod, cab, scr
-		ResetOnOwnerChange: true
-	FireArmamentPower:
-		AllowMultiple: False
-		Cursor: emp
-		MaximumFiringInstances: 1
-		ArmamentName: primary
-		Icon: emp
-		ChargeInterval: 3000
-		Description: E.M. Pulse
-		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
-		EndChargeSound: speech-nod|00-i158.aud
-		SelectTargetSound: n_00-i042.aud
-		Prerequisites: emp.gdi
-		OrderName: Nodemp
-		PauseOnCondition: disabled
-	RequiresBuildableArea:
-		AreaTypes: building
-
-SCRSHIELD:
-	Inherits: NAPULS
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Tooltip:
-		Name: Stasis Field Generator
-	Buildable:
-		Prerequisites: scrradr, ~structures.scr
-	-WithSpriteTurret:
-	RenderSprites:
-		Image: scrshield
-		-FactionImages:
-
 GATE_A:
 	Inherits: ^Gate_A
 	Buildable:
@@ -1300,34 +1113,6 @@ GATE_B:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
-
-MUTGATE_A:
-	Inherits: ^Gate_A
-	Inherits@2: ^MutRender
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 100
-		Prerequisites: ~structures.mut
-		Description: Automated barrier that opens for allied units.
-	Tooltip:
-		Name: Forgotten Gate
-	Building:
-	Gate:
-		CloseDelay: 100
-
-MUTGATE_B:
-	Inherits: ^Gate_B
-	Inherits@2: ^MutRender
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 100
-		Prerequisites: ~structures.mut
-		Description: Automated barrier that opens for allied units.
-	Tooltip:
-		Name: Forgotten Gate
-	Building:
-	Gate:
-		CloseDelay: 100
 
 SCRGATE_A:
 	Inherits: ^Gate_A
