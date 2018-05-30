@@ -367,13 +367,13 @@ PalaLazor:
 	Projectile: LaserZap
 		Width: 60
 		BeamDuration: 7
-		Color: 0000FF
+		Color: FF0000
 		BeamDuration: 20
 		SecondaryBeam: True
 		SecondaryBeamWidth: 30
 		ZOffset: 4000
 		SecondaryBeamZOffset: 4000
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamColor: FF0000
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 2550

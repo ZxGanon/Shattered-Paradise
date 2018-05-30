@@ -19,7 +19,7 @@ GrenadierBazooka:
 	ValidTargets: Ground, Water
 	Projectile: Missile
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 4000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -34,7 +34,7 @@ JJGrenade:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^GreyExplo
 	ReloadDelay: 80
-	Range: 4c0
+	Range: 4c512
 	Report: grenadelauncherfire.wav
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
@@ -175,7 +175,7 @@ HoverMissile:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 85
 	Burst: 2
-	Range: 7c512
+	Range: 6c0
 	Report: hovrmis1.aud
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
@@ -201,6 +201,35 @@ HoverMissileAA:
 		Damage: 4500
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+
+SlingFire:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 25
+	Burst: 2
+	Range: 6c0
+	Report: cygun1.aud
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	MinRange: 1c0
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		InvalidTargets: Air
+		Damage: 3500
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+SlingFireAA:
+	Inherits: QuadFire
+	Range: 7c512
+	ValidTargets: Air
+	Projectile: InstantHit
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		Damage: 1750
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath   
 
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
@@ -272,7 +301,7 @@ SonicZap:
 	Range: 6c0
 	Report: 120mmf.aud
 	Burst: 2
-	BurstDelays: 5
+	BurstDelays: 8
 	Projectile: BulletAS
 		Speed: 682
 		Image: 120mm
@@ -623,3 +652,47 @@ FirestormExploWalls:
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: fsidlewall, fsgrndwall
+        
+FalconPunch:
+	Inherits: ^BombWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ValidTargets: Ground, Water, Water
+	ReloadDelay: 1
+	MinRange: 0c100
+	Range: 3c0
+	Projectile: Missile
+		TerrainHeightAware: True
+		CruiseAltitude: 6000
+		MinimumLaunchAngle: 300
+		MaximumLaunchAngle: 300
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		Speed: 0c600
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c181
+		Image: DRAGON
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
+		RangeLimit: 28c291
+		Palette: effect
+		AllowSnapping: true
+		CloseEnough: 200
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 27000
+		ValidTargets: Ground, Water, Water
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+LeonidCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 75
+	Range: 6c768
+	Report: 120mmf.aud
+	Projectile: InstantHit
+		Innacuracy: 1c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+

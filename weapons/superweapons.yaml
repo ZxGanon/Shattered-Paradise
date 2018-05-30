@@ -231,24 +231,24 @@ DroppodSpawner:
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: DroppodElevator
-		Amount: 6
+		Amount: 1
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op2: FireShrapnel
 		Weapon: DroppodElevator2
-		Amount: 4
+		Amount: 1
 		Delay: 1
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op3: FireShrapnel
 		Weapon: DroppodElevator3
-		Amount: 3
+		Amount: 1
 		Delay: 1
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op4: FireShrapnel
 		Weapon: DroppodElevator4
-		Amount: 2
+		Amount: 1
 		Delay: 1
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
@@ -322,28 +322,28 @@ droppod1:
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Actor: SpawnActor
-		Actors: gdie1
+		Actors: eagleguard
 		Range: 3
 
 droppod2:
 	Inherits: droppod1
 	Inherits: ^BombWarhead
 	Warhead@5Actor: SpawnActor
-		Actors: jumpjet
+		Actors: eagleguard
 		Range: 3
 
 droppod3:
 	Inherits: droppod1
 	Inherits: ^BombWarhead
 	Warhead@5Actor: SpawnActor
-		Actors: medic
+		Actors: eagleguard
 		Range: 3
 
 droppod4:
 	Inherits: droppod1
 	Inherits: ^BombWarhead
 	Warhead@5Actor: SpawnActor
-		Actors: grenadier
+		Actors: eagleguard
 		Range: 3
 
 droppod5:

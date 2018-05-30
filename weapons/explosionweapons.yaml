@@ -57,8 +57,8 @@ StormriderExplode:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Mediuml_Clsn
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c080
-		Damage: 2500
+		Spread: 0c200
+		Damage: 5000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
