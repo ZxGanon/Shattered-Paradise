@@ -74,7 +74,7 @@ ORCA:
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Orca Fighter
 	Buildable:
@@ -260,7 +260,7 @@ APACHE:
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Harpy
+		Name: Apache
 	Buildable:
 		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Can detect stealth
 		Queue: Air

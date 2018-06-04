@@ -57,7 +57,7 @@ MUCANNON:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Forgotten Cannon
+		Name: Guardian Cannon
 	Buildable:
 		Queue: Defense
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles\n\nSpecial:\n- Require power to operate
@@ -135,6 +135,46 @@ GACSAM:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+CABBLAST:
+	Inherits: ^Tier2
+	Inherits@1: ^CabRender
+	Inherits@3: ^TowerStealthDetection
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Sonic Emitter
+	Buildable:
+		Queue: Defense
+		Description: Heavy defense armed with a Sonic Cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Provides stealth detection\n- Requires power to operate
+		Prerequisites: gatech, ~structures.gdi
+		BuildPaletteOrder: 21
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+		DecorationBounds: 40, 36, -3, -8
+	Health:
+		HP: 100000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+		PauseOnCondition: empdisable || disabled
+	WithSpriteTurret:
+		Recoils: no
+	Armament@1:
+		Weapon: SonicDefenceProj
+		LocalOffset: 512,0,512
+	Armament@2:
+		Weapon: SonicDefenceHit
+		LocalOffset: 512,0,512
+	Power:
+		Amount: -50
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
 SHREDDER:
 	Inherits: GAVULC
 	# WithWallSpriteBody:
@@ -147,7 +187,7 @@ SHREDDER:
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Defense
 		BuildPaletteOrder: 12
-		Prerequisites: gapile, ~structures.gdi
+		Prerequisites: gapile, ~structures.nod
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
@@ -217,7 +257,7 @@ NALASR:
 	RenderVoxels:
 	WithVoxelTurret:
 	Power:
-		Amount: -40
+		Amount: -20
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -276,24 +316,22 @@ NAOBEL:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Selectable:
-		Bounds: 88, 42, 0, -6
-		DecorationBounds: 88, 72, 0, -12
+		Bounds: 88, 130, 0, -36
+		DecorationBounds: 88, 130, 0, -36
 	Health:
 		HP: 100000
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: ObeliskLaserFire
-		LocalOffset: 1980,297,1131
-		MuzzleSequence: muzzle
-		MuzzlePalette: obelpal
+		LocalOffset: 4455,-636,1131
 	AttackCharges:
 		PauseOnCondition: empdisable || disabled
-		ChargeLevel: 40
+		ChargeLevel: 70
 		ChargingCondition: charging
 	AmbientSound:
 		RequiresCondition: charging && !disabled
-		SoundFiles: obelpowr.aud
-		# Interval: 30, 40
+		SoundFiles: obelcharge01.aud
+		# Interval: 70
 	WithChargeOverlay:
 		Sequence: active
 		Palette: player
@@ -301,7 +339,7 @@ NAOBEL:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Power:
-		Amount: -90
+		Amount: -50
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -385,7 +423,7 @@ SCRDRONE:
 		ForceTargetStances: Enemy
 		LocalOffset: 0,0,1750
 	Power:
-		Amount: -40
+		Amount: -20
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -462,57 +500,6 @@ GAPOWRUP:
 		Type: powrup
 	Power:
 		Amount: 100
-
-GAFIRE:
-	Inherits: ^Building
-	Inherits@2: ^3x2Shape
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 40
-		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated.\n- Consumes 300 power when activated.\n- Hostile units that try to cross the firestorm will be damaged.\n- Power loss does not stop this effect.\n- Does not block incoming projectiles.\n- Remains active for 12 seconds.\n- Takes 90 seconds to charge.
-		Prerequisites: gatech, ~structures.gdi
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: Firestorm Generator
-	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
-	WithRangeCircle:
-		Range: 12c0
-		Type: cloakgenerator
-	PowerMultiplier:
-		RequiresCondition: FirestormGen
-		Modifier: 600
-	GrantTimedConditionOnDeploy:
-		DeployedCondition: FirestormGen
-		CooldownTicks: 2250
-		StartsFullyCharged: False
-		DeployedTicks: 300
-		RequiresCondition: !disabled
-	ExplodeWeapon:
-		Weapon: FirestormWallUpgrade
-		RequiresCondition: FirestormGen
-		ResetReloadWhenEnabled: false
-	ExplodeWeapon@1:
-		Weapon: FirestormSpawner
-		RequiresCondition: FirestormGen
-		ResetReloadWhenEnabled: false
-	Selectable:
-		Bounds: 110, 60, 3, -4
-		DecorationBounds: 110, 60, 3, -4
-	Health:
-		HP: 150000
-	WithIdleOverlay@1:
-		Sequence: idle1
-	WithIdleOverlay@2:
-		Sequence: idle2
-	Power:
-		Amount: -50
-	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
 
 GAPLUG:
 	Inherits: ^Building
@@ -607,7 +594,7 @@ NASTLH:
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
-		Amount: -100
+		Amount: -50
 	Selectable:
 		Bounds: 106, 48, 8, -6
 		DecorationBounds: 106, 60, 8, -15

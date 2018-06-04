@@ -1198,35 +1198,31 @@ gaarty:
 
 naobel:
 	Defaults:
-		Offset: 0, -24, 24
-		UseTilesetCode: true
+		Offset: 0, -24
+		UseTilesetCode: false
 	idle:
-		ShadowStart: 3
 	damaged-idle:
 		Start: 1
-		ShadowStart: 4
 	dead:
 		Start: 2
-		ShadowStart: 5
 		Tick: 400
-	active: ntobel_b
-		Length: 12
-		Tick: 200
+	active: naobel_a
+		Length: 6
+		Tick: 500
 		ZOffset: 2
-	idle-lights: ntobel_a
-		Length: 12
-		Tick: 80
-	make: ntobelmk
-		Length: 19
-		ShadowStart: 19
-	muzzle: lightmuzzle
-		Offset: 0, 0
+	idle-lights: naobel_b
+		Length: 7
+		Tick: 300
+	make: naobelmk
+		Length: 25
+	muzzle: laserburst
 		Length: *
-		UseTilesetCode: false
+		Offset: 0, 0
 		BlendMode: Additive
+		UseTilesetCode: false
 	emp-overlay: emp_fx01
 		Length: *
-		Offset: 0, 0
+		Offset: 0, 0, 25
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
@@ -1364,3 +1360,26 @@ fire:
 		Length: *
 	1: dot
 		Length: *
+
+avatar:
+	Inherits: ^EmpOverlay
+	stand:
+		ShadowStart: 152
+		Facings: -8
+	run:
+		Start: 8
+		Length: 15
+		ShadowStart: 160
+		Facings: -8
+		Tick: 120
+	shoot:
+		Start: 128
+		Length: 3
+		ShadowStart: 280
+		Facings: -8
+		Tick: 320
+	muzzle: laserburst
+		Length: *
+		Offset: 0, 0
+		BlendMode: Additive
+	icon: avataricon

@@ -101,7 +101,13 @@ APC:
 		StationaryInterval: 18
 		MovingInterval: 6
 	Armament@primary:
-		Weapon: APCGrenade
+		Weapon: APCRifle
+		LocalOffset: 350,0,1000
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: APCRifleAA
 		LocalOffset: 350,0,1000
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
@@ -117,7 +123,7 @@ MMCH:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Predator Tank
+		Name: Archon Tank
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 4
@@ -232,21 +238,21 @@ SONIC:
 		Type: Disruptor
 	BodyOrientation:
 		CameraPitch: 250
-	Armament:
-		Weapon: SonicZap
+	Armament@1:
+		Weapon: SonicDefenceProj
 		LocalOffset: 0,0,800
 		PauseOnCondition: empdisable
-	AttackTurreted:
+	Armament:
+		Weapon: SonicDefenceHit
+		LocalOffset: 0,0,800
+		PauseOnCondition: empdisable
+	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
-	Turreted:
-		TurnSpeed: 3
-		Offset: -400,0,0
 	AutoTarget:
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
-	WithSpriteTurret:
 	WithMuzzleOverlay:
 
 JUG:
@@ -259,13 +265,15 @@ JUG:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can crush infantry
+		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can crush infantry, vehicles and cyborgs
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 60
+		Speed: 65
+		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
 	Health:
-		HP: 21000
+		HP: 45000
 	AttackFrontal:
 		Voice: Attack
 		Armaments: primary, secondary
@@ -310,13 +318,14 @@ G4TNK:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry.
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry, vehicles and cyborgs
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gatech
 	Mobile:
 		Speed: 60
 		TurnSpeed: 4
-		Crushes: wall, crate, infantry
+		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
 	Health:
 		HP: 70000
 	Turreted:
@@ -354,17 +363,18 @@ HMEC:
 		Cost: 4000
 	Tooltip:
 		Name: Mammoth Mk. II
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 9
-		Prerequisites: ~gaweap, gtdrop
-		BuildAtProductionType: Mammoth
-		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.\n- Can crush vehicles and cyborgs.\n- It is deployed via dropship at the Dropship Bay.
-		BuildLimit: 1
+#	Buildable:
+#		Queue: Vehicle
+#		BuildPaletteOrder: 9
+#		Prerequisites: ~gaweap, gtdrop
+#		BuildAtProductionType: Mammoth
+#		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.\n- Can crush vehicles and cyborgs.\n- It is deployed via dropship at the Dropship Bay.
+#		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
 		Speed: 40
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
 	-RejectsOrders@berserk:
 	Health:
 		HP: 200000
@@ -454,7 +464,7 @@ BGGY:
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^7CellVision
 	Valued:
-		Cost: 300
+		Cost: 450
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -481,6 +491,11 @@ BGGY:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: MilitantRifle
+		LocalOffset: 200,-43,200
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@AA:
+		Weapon: MilitantRifleAA
 		LocalOffset: 200,-43,200
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
@@ -815,11 +830,10 @@ HOWTLIZER:
 		Condition: CloakBreaks
 		ValidDamageStates: Critical
 
-PALADIN:
+AVATAR:
 	Inherits: ^Walker
 	Inherits@1: ^8CellVision
 	Inherits@2: ^CabRender
-	Inherits@3: ^PermanentSelfHeal
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -828,17 +842,19 @@ PALADIN:
 		Queue: Vehicle
 		BuildPaletteOrder: 17
 		BuildAtProductionType: Tank
-		Description: Advanced Walker armed with a Obelisk laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can crush infantry.
+		Description: Advanced Walker armed with a Obelisk laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can crush infantry, vehicles and cyborgs
 		Prerequisites:  ~naweap, natech
 	Mobile:
 		TurnSpeed: 5
 		Speed: 80
-		Crushes: wall, crate, infantry
+		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
 	-RejectsOrders@berserk:
 	Health:
 		HP: 70000
 	Voiced:
-		VoiceSet: Cyborg
+		VoiceSet: Avatar
+		Volume: 2
 	BodyOrientation:
 		QuantizedFacings: 8
 		CameraPitch: 250
@@ -849,28 +865,18 @@ PALADIN:
 		PauseOnCondition: empdisable
 	RenderSprites:
 	Armament@1:
-		Weapon: PalaLazor
-		LocalOffset: 555,500,1200
-		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: PalaLazorMute
-		LocalOffset: 555,-500,1200
-		PauseOnCondition: empdisable
-	Armament@3:
-		Weapon: PalaLazorMute
-		LocalOffset: 555,500,1350
-		PauseOnCondition: empdisable
-	Armament@4:
-		Weapon: PalaLazorMute
-		LocalOffset: 555,-500,1350
+		Weapon: AvatarLazor
+		LocalOffset: 990,509,2121
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
-		Bounds: 40, 60, 0, -20
+		Bounds: 42, 82, 0, -20
 	Carryable:
 		LocalOffset: 0,0,1200
 	SmokeParticleEmitter:
 		Offset: 0,0,1000
+	RenderSprites:
+		Scale: 0.8
 
 SCRGLYDER2:
 	Inherits@1: ^HoverVehicle
@@ -966,7 +972,7 @@ SCRMBT:
 		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water).\nAbsorbs essence from killed units to heal.\n- Cannot crush infantry.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
-		Cost: 1200
+		Cost: 1300
 	Tooltip:
 		Name: Hover Tank
 	Health:
@@ -1026,7 +1032,7 @@ SCRSCORPION:
 		Bounds: 50, 32, 0, -8
 	-DamagedByRadioactivity@Default:
 
-TRIPOD:
+ANHLTRPD:
 	Inherits@1: ^Walker
 	Inherits@2: ^ScrinVehicle
 	Inherits@3: ^8CellVision
@@ -1035,18 +1041,19 @@ TRIPOD:
 	Tooltip:
 		Name: Annihilator Tripod
 	Selectable:
-		Bounds: 50,100, 0, -30
+		Bounds: 42,82, 0, -20
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 28
 		BuildAtProductionType: Tank
 		Prerequisites: ~scrweap, scrtech
-		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal.
+		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can crush infantry, vehicles and cyborgs
 		IconPalette: chromescrin
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 8
 		Speed: 95
-		Crushes: crate, infantry
+		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
 	Health:
 		HP: 50000
 	Carryable:
@@ -1057,23 +1064,9 @@ TRIPOD:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
-	WithDeathAnimation@die:
-		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: True
-		DeathTypes:
-			BulletDeath: 1, 2
-			CabalDeath: 1, 2
-			CabalDeathCrate: 1, 2
-			BlackHandRfle: 1, 2
-			HeadshotDeath: 1, 2
-			SmallExplosionDeath: 1, 2
-			TiberiumDeath: 1, 2
-			TiberiumDeathStrong: 1, 2
-			EnergyDeath: 1, 2
-			ExplosionDeath: 1, 2
 	Armament:
 		Weapon: TripodLaser
-		LocalOffset: 100,225,3500
+		LocalOffset: 318,0,4950, 990,283,3677, 990,-283,3677
 		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack

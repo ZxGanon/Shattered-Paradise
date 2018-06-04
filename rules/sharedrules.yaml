@@ -170,6 +170,8 @@ harv.gdi:
 	RenderSprites:
 		Image: gdiharv
 		-FactionImages:
+	Health:
+		HP: 70000
 
 harv.nod:
 	Inherits: HARV
@@ -178,6 +180,22 @@ harv.nod:
 	RenderSprites:
 		Image: nodharv
 		-FactionImages:
+	GrantCondition:
+		Condition: cloakgenerator
+	Cloak@cloakgenerator:
+		InitialDelay: 80
+		CloakDelay: 80
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+		RequiresCondition: !CloakBreaks
+	GrantConditionOnDamageState@CloakBreaks:
+		Condition: CloakBreaks
+		ValidDamageStates: Critical
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRHARV:
 	Inherits: HARV
@@ -214,6 +232,16 @@ SCRHARV:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
+	GrantConditionOnTerrain@Tib:
+		Condition: TiberiumHealing
+		TerrainTypes: Tiberium, BlueTiberium
+	SelfHealing@Tib:
+		PercentageStep: 1
+		Step: 200
+		Delay: 50
+		DamageCooldown: 0
+		HealIfBelow: 105
+		RequiresCondition: TiberiumHealing
 
 GACNST:
 	Inherits: ^Building

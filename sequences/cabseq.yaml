@@ -410,6 +410,10 @@ cyc2:
 		Start: 197
 		Length: 15
 		ShadowStart: 505
+	die-crushed:
+		Start: 202
+		Length: 15
+		ShadowStart: 515
 	shoot:
 		Start: 212
 		Length: 6

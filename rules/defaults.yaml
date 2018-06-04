@@ -1200,7 +1200,7 @@
 		VoiceSet: Infantry
 	IgnoresDisguise:
 	Targetable:
-		TargetTypes: Ground, Infantry
+		TargetTypes: Ground, Infantry, DetonateAttack
 		RequiresCondition: !ToxinTrooper || !inside-tunnel
 	QuantizeFacingsFromSequence:
 		Sequence: stand
@@ -1545,7 +1545,7 @@
 		Duration: 50
 		Radius: 3c0
 	Crushable:
-		CrushClasses: vehicle
+		CrushClasses: Vehicle
 		WarnProbability: 0
 	Valued:
 		Cost: 1
@@ -1591,7 +1591,7 @@
 	Voiced:
 		VoiceSet: Vehicle
 	Targetable:
-		TargetTypes: Ground, Vehicle
+		TargetTypes: Ground, Vehicle, DetonateAttack
 		RequiresCondition: !ToxinTrooper
 	Targetable@repair:
 		TargetTypes: repair

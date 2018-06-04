@@ -118,9 +118,9 @@ E2:
 	Mobile:
 		TerrainSpeeds:
 			Tiberium: 70
-				PathingCost: 50
+				PathingCost: 300
 			BlueTiberium: 70
-				PathingCost: 50
+				PathingCost: 300
 	RenderSprites:
 		Image: e2
 		FactionImages:
@@ -134,6 +134,51 @@ E2:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+BHS:
+	Inherits: ^Soldier
+	Inherits@1: ^10CellVision
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 6
+		Description: Soldier armed with a sniper rifle.\n\nGood vs: Infantry\n\nSpecial:\n- Stealthed\n- Cannot attack Vehicles
+		Prerequisites: ~gapile, garadr
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Sniper
+	-RejectsOrders@berserk:
+	Health:
+		HP: 10000
+	Mobile:
+		Speed: 55
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
+	Voiced:
+		VoiceSet: Oxanna
+	Armament:
+		Weapon: BHRifle
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 80
+		CloakDelay: 80
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+	Cloak@CLOAKGENERATOR:
+		InitialDelay: 50
+		CloakDelay: 50
+		IsPlayerPalette: true
+		UncloakOn: Attack
+	RenderSprites:
 
 EAGLEGUARD:
 	Inherits: ^Soldier
@@ -145,7 +190,7 @@ EAGLEGUARD:
 	Buildable:
 		Description: Elite Soldiers armed with an EMP ray.\n\nGood vs: Vehicles.\n\nSpecial:\n- Does not receive damage from tiberium fields.\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
 		Queue: Infantry
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 7
 		Prerequisites: ~gapile, gatech
 	Voiced:
 		VoiceSet: Ghost
@@ -174,7 +219,7 @@ MARAUDER:
 	Inherits@1: ^10CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 8
 		Description: Special Trained GDI Soldier armed with a Gauß Rifle and C4.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Demolishes strcutures with C4\n- Cannot attack Vehicles\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
 		Prerequisites: ~gapile, gatech
 		BuildLimit: 1
@@ -196,6 +241,8 @@ MARAUDER:
 				PathingCost: 300
 			BlueTiberium: 70
 				PathingCost: 300
+	Crushable:
+		CrushClasses: HeavyInfantry
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -321,13 +368,48 @@ TEMPLAR:
 		Armaments: OnFoot
 	RenderSprites:
 	-DamagedByTerrain:
+    
+MEDIC:
+	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Infantry
+		BuildPaletteOrder: 9
+		Prerequisites: ~nahand, naradr
+		Description: Carries C4 charges taped to his body and kamikazes enemies\nblowing them up quickly and efficiently.\n\nGood vs: Ground Units\n\nSpecial:\n- Does explode on death
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Fanatic
+	Health:
+		HP: 8000
+	Mobile:
+		Speed: 75
+	Voiced:
+		VoiceSet: Medic
+	Passenger:
+		PipType: Red
+	Explodes:
+		Weapon: TerrorBomb
+		EmptyWeapon: TerrorBomb
+		PauseOnCondition: WebDisable
+		Name: OnFoot
+	AttackSuicides:
+	WithInfantryBody:
+    -AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	-TakeCover:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
 
 NCONF:
 	Inherits: ^Soldier
 	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 10
 		Description: Nod Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
@@ -363,64 +445,51 @@ NCONF:
 	Voiced:
 		VoiceSet: BlackHand
 
-BHS:
-	Inherits: ^Soldier
-	Inherits@1: ^10CellVision
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 10
-		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Demolishes strcutures with C4.\n- Shots fired release toxins that slow nearby infantry.\n- Cannot attack Vehicles.\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
-		Prerequisites: ~nahand, natech
-		BuildLimit: 1
+CYC2:
+	Inherits: ^Cyborg
+	Inherits@1: ^8CellVision
+	Inherits@2: ^PermanentSelfHeal
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Toxin Commando
+		Name: Cyborg Commando
+	Buildable:
+		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Does not receive damage from tiberium fields.\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
+		Queue: Infantry
+		BuildPaletteOrder: 11
+		Prerequisites: ~nahand, natech
+		BuildLimit: 1
+	-RejectsOrders@berserk:
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	Voiced:
+		VoiceSet: CyborgCommando
+	AnnounceOnSeen:
+		Notification: CommandoDetected
+	Mobile:
+		Speed: 65
+	Health:
+		HP: 70000
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	Targetable@MCImmune:
 		TargetTypes: MCImmune
-	-RejectsOrders@berserk:
-	Health:
-		HP: 30000
-	Mobile:
-		Speed: 75
-		TerrainSpeeds:
-			Tiberium: 70
-				PathingCost: 300
-			BlueTiberium: 70
-				PathingCost: 300
-	Voiced:
-		VoiceSet: Oxanna
-	Armament@1:
-		Weapon: BHRifle
+	Armament:
+		Weapon: CyCannon
+		LocalOffset: 170,85,683
 		PauseOnCondition: WebDisable
 		Name: OnFoot
-	Armament@2:
-		Weapon: GBHRifle
+	Armament@1:
+		Weapon: GCyCannon
+		LocalOffset: 170,85,683
 		PauseOnCondition: WebDisable
-	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
-		InitialDelay: 80
-		CloakDelay: 80
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
-		IsPlayerPalette: true
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-    AnnounceOnSeen:
-		Notification: CommandoDetected
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-	Demolition:
-		DetonationDelay: 45
-		Voice: Attack
-	Cloak@CLOAKGENERATOR:
-		InitialDelay: 50
-		CloakDelay: 50
-		IsPlayerPalette: true
-		UncloakOn: Attack
-	RenderSprites:
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 16,32,-1,-12
 
 SHARK:
 	Inherits: ^ScrinSoldier
@@ -482,8 +551,6 @@ LEGIO:
 		Name: Legionnaire
 	Health:
 		HP: 4000
-	Crushable:
-		CrushClasses: HeavyInfantry
 	Mobile:
 		Speed: 85
 	Passenger:
@@ -554,6 +621,8 @@ BUG:
 		HP: 25000
 	Mobile:
 		Speed: 75
+	Crushable:
+		CrushClasses: HeavyInfantry
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -633,10 +702,10 @@ SCRMOBMINE:
 	Inherits@2: ^AutoTargetGround
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 28
-		BuildAtProductionType: Tank
-		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles.\n- Can control up to three units.\n- Absorbs essence from killed units to heal.\n- Cannot mindcontrol MCVs or harvester.
-		Prerequisites: ~scrweap, scrtech
+		BuildPaletteOrder: 22
+		BuildAtProductionType: Infantry
+		Description: Mind Control unit.\n\nSpecial:\n- Can mind control vehicles.\n- Can control up to three units.\n- Absorbs essence from killed units to heal.\n- Cannot mindcontrol MCVs or harvester.
+		Prerequisites: ~scrrax, scrtech
 	Valued:
 		Cost: 1400
 	Tooltip:

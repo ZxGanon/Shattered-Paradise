@@ -305,6 +305,14 @@ Scrin:
 		Action: 32-i006
 		Die: 32-i008
 
+Avatar:
+	Voices:
+        Build: avatar_s1
+		Select: avatar_s1, avatar_s2, avatar_s3, avatar_s4, avatar_s5, avatar_s6, avatar_s7, avatar_s8, avatar_st1, avatar_st2
+		Move: avatar_m1, avatar_m2, avatar_m3, avatar_m4, avatar_m5, avatar_m6, avatar_m7, avatar_m8, avatar_m9
+        Attack: avatar_a1, avatar_a2, avatar_a3, avatar_a4, avatar_a5, avatar_a6, avatar_a7, avatar_a8, avatar_a9, avatar_a10, avatar_a11, avatar_a12, avatar_a13, avatar_a14
+		Action: avatar_a1, avatar_a2, avatar_a3, avatar_a4, avatar_a5, avatar_a6, avatar_a7, avatar_a8, avatar_a9, avatar_a10, avatar_a11, avatar_a12, avatar_a13, avatar_a14
+
 ######################################################################
 #Shared Custom
 ######################################################################

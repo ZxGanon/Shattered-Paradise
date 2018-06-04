@@ -334,6 +334,10 @@ colossi:
 		Start: 218
 		Length: 6
 		ShadowStart: 465
+    die-crushed:
+        Start: 217
+        Tick: 400
+        ShadowStart: 464
 	shoot:
 		Start: 72
 		Length: 8
@@ -450,33 +454,26 @@ scrglyder2:
 		Facings: -32
 	icon: glider2icon
 
-tripod:
+anhltrpd:
 	Inherits: ^EmpOverlay
 	stand:
-		Start: 192
-		Facings: -8
-		ShadowStart: 519
-	run:
-		Facings: -8
-		Length: 24
-		ShadowStart: 327
-	shoot:
-		Start: 200
-		Length: 5
-		Facings: -8
-		ShadowStart: 527
-		Tick: 100
-	die1:
-		Length: 51
 		Start: 240
-		ShadowStart: 567
-	die2:
-		Start: 291
-		Length: 36
-		ShadowStart: 618
-	shield: shieldtrip
 		Length: 1
-	icon: tripodicon
+		Facings: -8
+	run:
+		Length: 15
+		Facings: -8
+		Tick: 90
+	shoot:
+		Start: 120
+		Length: 15
+		Facings: -8
+		Tick: 120
+	muzzle: plassabogsml
+		Length: *
+		Offset: 0, 0
+		BlendMode: Additive
+	icon: anhltrpdicon
 
 scrpod:
 	Inherits: ^SpriteVehicle

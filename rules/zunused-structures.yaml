@@ -46,6 +46,57 @@ GAROCK:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+GAFIRE:
+	Inherits: ^Building
+	Inherits@2: ^3x2Shape
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 40
+		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated.\n- Consumes 300 power when activated.\n- Hostile units that try to cross the firestorm will be damaged.\n- Power loss does not stop this effect.\n- Does not block incoming projectiles.\n- Remains active for 12 seconds.\n- Takes 90 seconds to charge.
+		Prerequisites: gatech, ~structures.gdi
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Firestorm Generator
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	WithRangeCircle:
+		Range: 12c0
+		Type: cloakgenerator
+	PowerMultiplier:
+		RequiresCondition: FirestormGen
+		Modifier: 600
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: FirestormGen
+		CooldownTicks: 2250
+		StartsFullyCharged: False
+		DeployedTicks: 300
+		RequiresCondition: !disabled
+	ExplodeWeapon:
+		Weapon: FirestormWallUpgrade
+		RequiresCondition: FirestormGen
+		ResetReloadWhenEnabled: false
+	ExplodeWeapon@1:
+		Weapon: FirestormSpawner
+		RequiresCondition: FirestormGen
+		ResetReloadWhenEnabled: false
+	Selectable:
+		Bounds: 110, 60, 3, -4
+		DecorationBounds: 110, 60, 3, -4
+	Health:
+		HP: 150000
+	WithIdleOverlay@1:
+		Sequence: idle1
+	WithIdleOverlay@2:
+		Sequence: idle2
+	Power:
+		Amount: -50
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
 SCRDEPOT:
 	Inherits: GADEPT
 	Inherits@2: ^ScrinRender
@@ -738,43 +789,6 @@ CABPIT:
 		RespawnTicks: 700
 		ReamTicks: 10
 		InstaRepair: true
-	RequiresBuildableArea:
-		AreaTypes: building
-
-CABBLAST:
-	Inherits: ^Tier2
-	Inherits@1: ^CabRender
-	Inherits@3: ^TowerStealthDetection
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Blaster Turret
-	Buildable:
-		Queue: Defense
-		Description: Artillery defense turret.\n\nGood vs: Ground Targets\n\nSpecial:\n- Provides stealth detection\n- Has minimum range of fire\n- Requires power to operate
-		Prerequisites: cabradr, ~structures.cab
-		BuildPaletteOrder: 21
-	Building:
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
-	Health:
-		HP: 50000
-	BodyOrientation:
-		QuantizedFacings: 32
-	Turreted:
-		TurnSpeed: 10
-		InitialFacing: 50
-	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret:
-		Recoils: no
-	Armament:
-		Weapon: BlasterProton
-		LocalOffset: 512,0,512
-	Power:
-		Amount: -50
-	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
 

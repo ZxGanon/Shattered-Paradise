@@ -1,14 +1,87 @@
+TerrorBomb:
+	ReloadDelay: 20
+	Range: 4c0
+	Report: gexpbara, gexpbarb, gexpbarc
+	Projectile: InstantExplode
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, DetonateAttack
+		Spread: 768
+		Damage: 40000
+		#Falloff: 1024, 1024, 512, 512, 256, 256, 0
+		Versus:
+			AircraftArmor: 100
+			InfantryArmor: 100
+			VehicleArmor: 100
+			BuildingArmor: 175
+            DefenseArmor: 175
+			ConcreteArmor: 30
+		AffectsParent: true
+		DamageTypes: Prone70Percent, TriggerProne, FlameDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: jtwlt036, jtwlt036b, jtwlt050
+		ExplosionPalette: gensmkexploj
+		ImpactSounds: expnew09.aud, expnew10.aud, expnew11.aud
+		InvalidTargets: Water, Air
+		ValidTargets: Ground
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ExplosionPalette: player
+		ImpactSounds: ssplash1.aud, ssplash2.aud, ssplash3.aud
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater
+		InvalidTargets: Vehicle, Building, Wall
+
+AvatarLazor:
+	Inherits: ^FullDamage
+	ReloadDelay: 75
+	Range: 8c256
+	Report: avatarlaser0000.wav, avatarlaser0001.wav, avatarlaser0002.wav
+	Projectile: LaserZap
+		Width: 60
+		BeamDuration: 7
+		Color: FF0000
+		BeamDuration: 20
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		ZOffset: 4000
+		SecondaryBeamZOffset: 4000
+		SecondaryBeamColor: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 10000
+		Versus:
+			InfantryArmor: 10
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 35
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
 MilitantRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
-	Range: 4c512
+	Range: 5c0
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+MilitantRifleAA:
+	Inherits: MilitantRifle
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
+	Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			AircraftArmor: 50
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 MilitantExplode:
 	Inherits: ^FlameWarhead
@@ -94,21 +167,23 @@ TemplarLasor:
 
 BHRifle:
 	ReloadDelay: 100
-	Range: 9c0
+	Range: 10c0
 	Report: ramjetfire.wav
-	ValidTargets: Infantry, LandedAircraft
+	ValidTargets: Infantry, LandedAircraft, Water, Vehicle
+	ReloadDelay: 70
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
+		ValidTargets: Building
 		Damage: 7500
-		ValidTargets: Infantry, LandedAircraft
+		ValidTargets: Infantry, LandedAircraft, Water, Vehicle
 		Versus:
 			InfantryArmor: 400
-			BuildingArmor: 5
-			DefenseArmor: 5
-			VehicleArmor: 5
+			BuildingArmor: 1
+			DefenseArmor: 1
+			VehicleArmor: 1
 			AircraftArmor: 50
-			ConcreteArmor: 5
+			ConcreteArmor: 1
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: hallugren
@@ -119,12 +194,6 @@ BHRifle:
 		Explosions: water_piff
 		ExplosionPalette: ra
 		ValidImpactTypes: Water
-	Warhead@emp: GrantExternalCondition
-		Range: 1c512
-		Duration: 125
-		Condition: ToxinTrooperDebuff
-		ValidTargets: Infantry
-		InvalidTargets: Building, Defence, MindControlInmune, MCImmune
 
 BuggyCannon:
 	Inherits: ^RifleWarhead
@@ -350,7 +419,7 @@ BCLazor:
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c64
-		Damage: 400
+		Damage: 1000
 		Versus:
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
@@ -424,12 +493,13 @@ HarpyClaw:
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Damage: 2500
+		Damage: 3000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
 			InfantryArmor: 150
+            VehicleArmor: 40
 			BuildingArmor: 30
 
 HarpyClawAA:
@@ -467,7 +537,7 @@ Proton:
 		Image: TORPEDO
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
-		Damage: 2500
+		Damage: 3000
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -528,6 +598,13 @@ TurretLaserFire:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 3500
+		Versus:
+			InfantryArmor: 10
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 35
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 RedEye2:

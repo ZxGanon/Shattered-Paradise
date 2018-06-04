@@ -283,7 +283,7 @@ SCRMBTLASOR:
 	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 75
-	Range: 8c0
+	Range: 7c0
 	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
 	Projectile: LaserZap
 		Width: 50
@@ -296,7 +296,14 @@ SCRMBTLASOR:
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 9000
+		Damage: 8000
+		Versus:
+			InfantryArmor: 10
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 35
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2Eff: CreateEffect
@@ -305,7 +312,7 @@ SCRMBTLASOR:
 TripodLaser:
 	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Explo
-	ReloadDelay: 30
+	ReloadDelay: 40
 	Burst: 3
 	BurstDelays: 30
 	Range: 7c0
@@ -322,7 +329,14 @@ TripodLaser:
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 7500
+		Damage: 6000
+		Versus:
+			InfantryArmor: 10
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 35
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2Eff: CreateEffect
