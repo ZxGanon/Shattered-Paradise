@@ -74,7 +74,7 @@ ORCA:
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1500
+		Cost: 1400
 	Tooltip:
 		Name: Orca Fighter
 	Buildable:
@@ -123,7 +123,7 @@ ORCAB:
 	Inherits@2: ^AutoTargetAllAssaultMove
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 2000
+		Cost: 1800
 	Tooltip:
 		Name: Falcon
 	Buildable:
@@ -306,7 +306,7 @@ SCRIN:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1800
+		Cost: 1500
 	Tooltip:
 		Name: Banshee Fighter
 	Buildable:
@@ -360,7 +360,7 @@ STORMRIDER:
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1500
+		Cost: 1400
 	Tooltip:
 		Name: Storm Rider
 	Buildable:
@@ -407,7 +407,7 @@ SCRGLYDER1:
 	Inherits@2: ^ScrinRender
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Glider
 	Voiced:
@@ -418,14 +418,17 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 120
+		Speed: 135
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Water
 	Health:
-		HP: 30000
-	Armament:
+		HP: 25000
+	Armament@1:
 		Weapon: Glyder1Cannon
+		LocalOffset: 0,0,-100
+	Armament@2:
+		Weapon: Glyder2Cannon
 		LocalOffset: 0,0,-100
 	AttackHeli:
 		FacingTolerance: 20
@@ -508,7 +511,7 @@ SCRDESTROYER:
 	Inherits@5: ^7CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1800
+		Cost: 1700
 	Tooltip:
 		Name: Destroyer
 	Buildable:
@@ -557,7 +560,7 @@ SCRCARRIER:
 	Inherits@4: ^BasicStealthDetection
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Tooltip:
 		Name: Assault Carrier
 	Buildable:

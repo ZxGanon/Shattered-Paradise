@@ -72,11 +72,23 @@ MilitantRifle:
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-MilitantRifleAA:
+BuggyRifle:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 25
+	Range: 6c0
+	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Damage: 1600
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+BuggyRifleAA:
 	Inherits: MilitantRifle
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Range: 6c0
+	Range: 7c0
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			AircraftArmor: 50
@@ -133,13 +145,13 @@ CrusaderBazookaAA:
 TemplarFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch
-	ReloadDelay: 60
+	ReloadDelay: 0
 	Range: 4c256
 	Report: flamtnk1.aud
 	Projectile: BulletAS
 		Speed: 130
 		Image: FLAMEALL
-		Inaccuracy: 1c3
+        Inaccuracy: 1c0
 		Palette: effectalpha75
 	Burst: 10
 	BurstDelays: 2
@@ -297,19 +309,19 @@ BikeMissileAA:
 DevilsFlame:
 	Inherits: ^FlameWarhead
 	Inherits@2: ^FlameScorch
-	ReloadDelay: 60
-	Range: 4c256
+	ReloadDelay: 0
+	Range: 5c0
 	Report: flamtnk1.aud
 	Projectile: BulletAS
 		Speed: 130
 		Image: FLAMEALL
-		Inaccuracy: 1c3
+        Inaccuracy: 1c0
 		Palette: effectalpha75
 	Burst: 14
 	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 400
+		Spread: 300
+		Damage: 600
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 
 FlameHoloShrapnel:
@@ -423,10 +435,10 @@ BCLazor:
 		Versus:
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
-SpectreCannon:
+SpecterCannon:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Large_Explosion
-	ReloadDelay: 150
+	ReloadDelay: 100
 	Range: 18c0
 	MinRange: 5c0
 	Report: jugfire0000.wav, jugfire0001.wav, jugfire0002.wav#specfire0000.wav, specfire0001.wav, specfire0002.wav
@@ -466,19 +478,20 @@ StealthRocket:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 125
 	Range: 7c0
-	Burst: 7
+	Burst: 6
 	Report: misl1.aud
 	ValidTargets: Ground, Water
 	Projectile: Missile
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 3500
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 StealthRocketAA:
 	Inherits: StealthRocket
 	ValidTargets: Air
+	Range: 8c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 

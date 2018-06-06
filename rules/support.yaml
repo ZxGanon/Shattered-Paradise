@@ -9,7 +9,7 @@ GAVULC:
 		Name: Vulcan Tower
 	Buildable:
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 10
 		Prerequisites: gapile, ~structures.gdi
 	Building:
@@ -59,9 +59,9 @@ MUCANNON:
 	Tooltip:
 		Name: Guardian Cannon
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles\n\nSpecial:\n- Require power to operate
-		Prerequisites: muweap, ~structures.mut
+		Prerequisites: gaweap, ~structures.mut
 		BuildPaletteOrder: 11
 	Building:
 	Selectable:
@@ -89,49 +89,42 @@ MUCANNON:
 	Power@base:
 		Amount: -20
 
-GACSAM:
+MUFLAK:
 	Inherits: ^AntiAir
+	Inherits@1: ^MutRender
 	Power:
 		Amount: -20
-	WithSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: SAM Tower
+		Name: Flak Station
 	Buildable:
-		Queue: Defense
-		Description: Anti-Air base defense.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
-		BuildPaletteOrder: 12
+		Queue: Building
+		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air\n- Requires power to operate
 		Prerequisites: garadr, ~structures.gdi
-	GrantConditionOnPowerState@LOWPOWER:
-		Condition: lowpower
-		ValidPowerStates: Low, Critical
+		BuildPaletteOrder: 12
 	Building:
 	Selectable:
-		Bounds: 48, 36, 0, -6
-		DecorationBounds: 48, 48, 0, -12
+		Bounds: 40, 36, -3, -8
+		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 70000
 	BodyOrientation:
 		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
 	AttackTurreted:
-		PauseOnCondition: empdisable || disabled
-	WithSpriteTurret@SAM:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
 		Recoils: no
-	Armament@SAM:
-		Weapon: GdiRedEye
-		LocalOffset: 400,0,1800
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-		PauseOnCondition: disabled
-	LineBuildNode:
-		Types: turret
-	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-	RenderSprites:
+	Armament:
+		Weapon: SlingFireAA
+		MuzzleSequence: muzzle
+		MuzzlePalette: apgrey
+		LocalOffset: 450,0,300
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -144,7 +137,7 @@ CABBLAST:
 	Tooltip:
 		Name: Sonic Emitter
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		Description: Heavy defense armed with a Sonic Cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Provides stealth detection\n- Requires power to operate
 		Prerequisites: gatech, ~structures.gdi
 		BuildPaletteOrder: 21
@@ -163,10 +156,7 @@ CABBLAST:
 		PauseOnCondition: empdisable || disabled
 	WithSpriteTurret:
 		Recoils: no
-	Armament@1:
-		Weapon: SonicDefenceProj
-		LocalOffset: 512,0,512
-	Armament@2:
+	Armament:
 		Weapon: SonicDefenceHit
 		LocalOffset: 512,0,512
 	Power:
@@ -185,9 +175,9 @@ SHREDDER:
 		Name: Shredder Turret
 	Buildable:
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 12
-		Prerequisites: gapile, ~structures.nod
+		Prerequisites: nahand, ~structures.nod
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
@@ -236,8 +226,8 @@ NALASR:
 		Name: Laser Turret
 	Buildable:
 		Description: High tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Defense
-		Prerequisites: nahand, ~structures.nod
+		Queue: Building
+		Prerequisites: naweap, ~structures.nod
 		BuildPaletteOrder: 13
 	Building:
 	Selectable:
@@ -270,7 +260,7 @@ NASAM:
 		Name: S.A.M. Site
 	Buildable:
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
-		Queue: Defense
+		Queue: Building
 		Prerequisites: naradr, ~structures.nod
 		BuildPaletteOrder: 14
 	Building:
@@ -309,7 +299,7 @@ NAOBEL:
 		Name: Obelisk of Light
 	Buildable:
 		Description: Advanced high tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 15
 		Prerequisites: natech, ~structures.nod
 	Building:
@@ -350,11 +340,11 @@ SCRNEEDLER:
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 800
+		Cost: 600
 	Tooltip:
 		Name: Ichor Waste Turret
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: scrrax, ~structures.scr
 		BuildPaletteOrder: 23
@@ -363,7 +353,7 @@ SCRNEEDLER:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 70000
+		HP: 35000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -400,14 +390,14 @@ SCRDRONE:
 	Inherits@4: ^ScrinDeathExplo
 	Inherits@5: ^2x2Shape
 	Valued:
-		Cost: 1400
+		Cost: 1000
 	Tooltip:
 		Name: Visceroid Hive
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 24
 		Description: Advanced base defense.\n\nGood vs Ground targets.\n\nSpecial:\n- Throws Visceroids at enemies.\n- Requires power to operate.
-		Prerequisites: scrradr, ~structures.scr
+		Prerequisites: scrweap, ~structures.scr
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -415,7 +405,7 @@ SCRDRONE:
 		Bounds: 88, 42, 0, -6
 		DecorationBounds: 88, 72, 0, -12
 	Health:
-		HP: 100000
+		HP: 70000
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
 	Armament:
@@ -438,7 +428,7 @@ SCRTRACTOR:
 		Name: Tractor Beam
 	Buildable:
 		Description: Scrin Anti-Air base defense\n\nGood vs Aircraft\n\nSpecial:\n- Can attack air.\n- Freezes the targetted aircraft momentarily.\n- Requires power to operate.
-		Queue: Defense
+		Queue: Building
 		Prerequisites: scrradr, ~structures.scr
 		BuildPaletteOrder: 25
 	Building:
@@ -485,6 +475,42 @@ SCRTRACTOR:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+SCREXTRACTOR:
+	Inherits@2: ^Tier2
+	Inherits@3: ^ScrinRender
+	Inherits@4: ^ScrinDeathExplo
+	Inherits@5: ^TowerStealthDetection
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Storm Tower
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 26
+		Description: Advanced defence structure..\n\nSpecial:\n- Generates storm clouds hitting enemy units\n-Can attack air\n- Requires power to operate.
+		Prerequisites: scrtech, ~structures.scr
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Selectable:
+		Bounds: 40, 30, -3, -8
+		DecorationBounds: 40, 36, -3, -8
+	Health:
+		HP: 100000
+	Power:
+		Amount: -50
+	Armament@Primary:
+		Weapon: StormTowerHit
+		LocalOffset: 128,0,640
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: StormTowerHitAA
+		LocalOffset: 128,0,640
+		PauseOnCondition: empdisable
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+
 GAPOWRUP:
 	Inherits: ^BuildingPlug
 	Valued:
@@ -493,7 +519,7 @@ GAPOWRUP:
 		Name: Power Turbine
 	Buildable:
 		Description: Provides extra power generation, place them on the smokestack of the structure.
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 30
 		Prerequisites: gapowr, garadr, ~structures.gdi
 	Plug:
@@ -516,7 +542,7 @@ GAPLUG:
 		BuildPaletteOrder: 41
 		Prerequisites: proc, gatech, ~structures.gdi, ~techlevel.unrestricted
 		Description: Communications facility for the Ion Cannon Array.\n\nSpecial:\n- Provides access to Ion Cannon Alpha Strike\n- Requires power to operate
-		Queue: Defense
+		Queue: Building
 		BuildLimit: 1
 	Building:
 		Footprint: xxx xxx
@@ -570,7 +596,7 @@ NASTLH:
 		BuildPaletteOrder: 43
 		Prerequisites: proc, natech, ~structures.nod
 		Description: Support structure that cloacks friendly units and buildings.\n\nSpecial:\n- Cloacks friendly assets around it.\n- Generator itself is not cloacked.\n- Requires power to operate.
-		Queue: Defense
+		Queue: Building
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -607,7 +633,7 @@ NATMPL:
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 44
 		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
 		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate.
@@ -668,42 +694,6 @@ NATMPL:
 		Adjacent: 3
 	WithNukeLaunchAnimation:
 
-SCREXTRACTOR:
-	Inherits: ^Building
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^DisableOnLowPowerOrPowerDown
-	Valued:
-		Cost: 750
-	Tooltip:
-		Name: Shield Generator
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 49
-		Description: Support structure.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Requires power to operate.
-		Prerequisites: scrtech, ~structures.scr
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Selectable:
-		Bounds: 40, 30, -3, -8
-		DecorationBounds: 40, 36, -3, -8
-	Health:
-		HP: 60000
-	Power:
-		Amount: -30
-	SelectionDecorations:
-	ProximityExternalCondition@VanguardShield:
-		Condition: VanguardShield
-		Range: 10c0
-		AffectsParent: false
-		RequiresCondition: !disabled
-	WithRangeCircle:
-		Range: 10c0
-		Type: VanguardShield
-	RequiresBuildableArea:
-		AreaTypes: building
-
 SCRSW1:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
@@ -711,7 +701,7 @@ SCRSW1:
 	Inherits@4: ^3x2Shape
 	Inherits@5: ^SuperWeapon
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 50
 		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
 		Description: Allows the player to call in meteor storm strikes.\n\nSpecial:\n- Provides access to the Wrath of the Creator superweapon.\n- Requires power to operate.

@@ -409,23 +409,6 @@ LynxCannon:
 		Damage: 4500
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
-QuadFire:
-	Inherits: ^RifleWarhead
-	Inherits@2: ^Piffs
-	ReloadDelay: 50
-	Burst: 2
-	Range: 6c0
-	Report: cygun1.aud
-	ValidTargets: Ground, Water, Vehicle, Building, Infantry
-	InvalidTargets: Air
-	MinRange: 1c0
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: Ground, Water, Vehicle, Building, Infantry
-		InvalidTargets: Air
-		Damage: 3500
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-
 QuadFireAA:
 	Inherits: QuadFire
 	Range: 7c512
@@ -675,26 +658,6 @@ CloudDamage:
 		InvalidTargets: CloudInmune, NeutralTibCritter
 		Versus:
 			InfantryArmor: 300
-
-FlakFire:
-	Inherits: ^FullDamage
-	Inherits: ^Small_Brnl
-	ReloadDelay: 50
-	Range: 10c0
-	Report: cygun1.aud
-	ValidTargets: Air
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: Air
-		Damage: 4000
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, Water, Air, AirHit
-		ExplosionPalette: apolra2salpha
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ExplosionPalette: ra
-		ValidTargets: Water
 
 VentilatorPoison:
 	Inherits: ^RifleWarhead

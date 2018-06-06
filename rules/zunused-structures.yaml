@@ -708,48 +708,51 @@ MUBUNKRFULL:
  	Cargo:
 		InitialUnits: marauder, marauder, mutfiend, mutfiend
 
-MUFLAK:
+GACSAM:
 	Inherits: ^AntiAir
-	Inherits@1: ^MutRender
+	Power:
+		Amount: -20
+	WithSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Flak Station
+		Name: SAM Tower
 	Buildable:
-		Queue: Defense
-		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Does not require power to operate.
-		Prerequisites: muradr, ~structures.mut
-		BuildPaletteOrder: 18
+		Queue: Building
+		Description: Anti-Air base defense.\n\nGood vs: Aircraft\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
+		BuildPaletteOrder: 12
+		Prerequisites: garadr, ~structures.gdi
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
 	Building:
 	Selectable:
-		Bounds: 40, 36, -3, -8
-		DecorationBounds: 40, 36, -3, -8
+		Bounds: 48, 36, 0, -6
+		DecorationBounds: 48, 48, 0, -12
 	Health:
-		HP: 50000
+		HP: 70000
 	BodyOrientation:
 		QuantizedFacings: 32
-	RenderRangeCircle:
-		RangeCircleType: aa
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
 	AttackTurreted:
-	WithMuzzleOverlay:
-	WithSpriteTurret:
+		PauseOnCondition: empdisable || disabled
+	WithSpriteTurret@SAM:
 		Recoils: no
-	Armament:
-		Weapon: FlakFire
-		MuzzleSequence: muzzle
-		MuzzlePalette: apgrey
-		LocalOffset: 450,0,300
+	Armament@SAM:
+		Weapon: GdiRedEye
+		LocalOffset: 400,0,1800
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+		PauseOnCondition: disabled
+	LineBuildNode:
+		Types: turret
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RenderSprites:
 	RequiresBuildableArea:
 		AreaTypes: building
-	-WithColoredOverlay@IDISABLE:
-	-GrantConditionOnPowerState@LOWPOWER:
-	-GrantCondition@IDISABLE:
-	-ToggleConditionOnOrder:
-	-WithDecoration@POWERDOWN:
-	-PowerMultiplier@POWERDOWN:
 
 CABPIT:
 	Inherits: ^Defence

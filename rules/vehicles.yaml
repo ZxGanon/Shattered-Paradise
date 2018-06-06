@@ -15,11 +15,11 @@ HVR:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		Speed: 105
+		Speed: 90
 		TurnSpeed: 9
 		TerrainSpeeds:
 	Health:
-		HP: 18000
+		HP: 20000
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
@@ -170,7 +170,7 @@ MUTQUAD:
 	Inherits@4: ^HoverVehicle
 	Inherits@5: ^8CellVision
 	Valued:
-		Cost: 450
+		Cost: 700
 	Tooltip:
 		Name: Slingshot
 	Buildable:
@@ -184,7 +184,7 @@ MUTQUAD:
 		Speed: 115
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 25000
+		HP: 30000
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -220,7 +220,7 @@ SONIC:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Disruptor
+		Name: Zone Shatterer
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
@@ -238,10 +238,6 @@ SONIC:
 		Type: Disruptor
 	BodyOrientation:
 		CameraPitch: 250
-	Armament@1:
-		Weapon: SonicDefenceProj
-		LocalOffset: 0,0,800
-		PauseOnCondition: empdisable
 	Armament:
 		Weapon: SonicDefenceHit
 		LocalOffset: 0,0,800
@@ -259,7 +255,7 @@ JUG:
 	Inherits: ^Walker
 	Inherits@1: ^5CellVision
 	Valued:
-		Cost: 1500
+		Cost: 1700
 	Tooltip:
 		Name: Juggernaut
 	Buildable:
@@ -270,6 +266,7 @@ JUG:
 		Prerequisites: ~gaweap, gatech
 	Mobile:
 		Speed: 65
+        TurnSpeed: 5
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	Health:
@@ -282,12 +279,6 @@ JUG:
 	Armament:
 		Weapon: JuggCannon
 		LocalOffset: 600, 200, 2650
-		MuzzleSequence: muzzle
-		PauseOnCondition: empdisable
-	Armament@1:
-		Weapon: JuggCannon
-		LocalOffset: 600, -200, 2650
-		Name: secondary
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
@@ -312,7 +303,7 @@ G4TNK:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 1800
+		Cost: 2000
 	Tooltip:
 		Name: Mammoth Tank
 	Buildable:
@@ -464,7 +455,7 @@ BGGY:
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^7CellVision
 	Valued:
-		Cost: 450
+		Cost: 400
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -490,12 +481,12 @@ BGGY:
 	AutoTarget:
 	WithMuzzleOverlay:
 	Armament:
-		Weapon: MilitantRifle
+		Weapon: BuggyRifle
 		LocalOffset: 200,-43,200
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 	Armament@AA:
-		Weapon: MilitantRifleAA
+		Weapon: BuggyRifleAA
 		LocalOffset: 200,-43,200
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
@@ -557,7 +548,7 @@ LYNX:
 		BuildPaletteOrder: 12
 		Prerequisites: ~naweap
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Scorpion Tank
 	Mobile:
@@ -598,85 +589,31 @@ SUBTANK:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Devil's Tongue
+		Name: Pyradon Flame Tank
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
+		Description: Flame Tanks purifier enemies with flames.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can crush infantry
 		BuildPaletteOrder: 13
 		Prerequisites: ~naweap, naradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 90
+		Speed: 95
 		Crushes: wall, crate, infantry
-		RequiresCondition: !empdisable && !loading
-		Subterranean: true
-		SubterraneanCondition: submerged
-		SubterraneanTransitionTerrainTypes: Clear, Ice, Rough, Road, Rail, DirtRoad, Bridge,  Tiberium, BlueTiberium, Veins
-		SubterraneanTransitionCost: 0#-2147483647
-		SubterraneanTransitionSound: subdril1.aud
-		SubterraneanTransitionImage: dig
-		SubterraneanTransitionSequence: idle
-		SubterraneanTransitionOnRamps: True
-		TerrainSpeeds:
-			Clear: 100
-				PathingCost: 150
-			Ice: 100
-				PathingCost: 150               
-			Road: 120
-				PathingCost: 150
-			Rail: 100
-				PathingCost: 150
-			DirtRoad: 110
-				PathingCost: 150
-			Rough: 80
-				PathingCost: 150
-			Bridge: 120
-				PathingCost: 150
-			Tiberium: 70
-				PathingCost: 300
-			BlueTiberium: 70
-				PathingCost: 300
-			Veins: 80
-				PathingCost: 150
-			Subterranean: 120
-	SelfHealing@veinholedrain:
-		RequiresCondition: veinholedrain && !submerged
-	WithIdleOverlay@veinholedrain:
-		RequiresCondition: veinholedrain && !submerged
-	Cloak@cloakgenerator:
-		RequiresCondition: submerged
-		InitialDelay: 25
-		CloakDelay: 25
-		IsPlayerPalette: true
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	Health:
-		HP: 25000
+		HP: 30000
 	Armament:
 		Weapon: DevilsFlame
 		LocalOffset: 0,400,0
 		PauseOnCondition: empdisable
-	Armament@secondary:
-		Weapon: DevilsFlame
-		LocalOffset: 0,-400,0
-		PauseOnCondition: empdisable
-	RejectsOrders@subterranean:
-		RequiresCondition: submerged
-		Except: Stop
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
 	WithVoxelBody:
-		RequiresCondition: !submerged
-	Targetable:
-		RequiresCondition: !inside-tunnel && !submerged
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
-	AnnounceOnSeen@subterranean:
-		Notification: SubterraneanUnitDetected
-		PingRadar: True
 
 ARMH:
 	Inherits: ^VoxelTank
@@ -722,7 +659,7 @@ STNK:
 	Inherits: ^VoxelTank
 	Inherits@1: ^8CellVision
 	Valued:
-		Cost: 1000
+		Cost: 1400
 	Tooltip:
 		Name: Stealth Tank
 	Buildable:
@@ -733,7 +670,7 @@ STNK:
 		Queue: Vehicle
 	Mobile:
 		TurnSpeed: 7
-		Speed: 100
+		Speed: 115
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 20000
@@ -799,8 +736,8 @@ HOWTLIZER:
 	Health:
 		HP: 12000
 	Mobile:
-		Speed: 50
-		TurnSpeed: 3
+		Speed: 80
+		TurnSpeed: 8
 	Cloak@cloakgenerator:
 		InitialDelay: 170
 		CloakDelay: 170
@@ -814,7 +751,7 @@ HOWTLIZER:
 	WithMuzzleOverlay:
 	WithFacingSpriteBody:
 	Armament:
-		Weapon: SpectreCannon
+		Weapon: SpecterCannon
 		LocalOffset: 600,0,1500
 		MuzzleSequence: muzzle
 		MuzzlePalette: gensmkexploj
@@ -835,7 +772,7 @@ AVATAR:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^CabRender
 	Valued:
-		Cost: 1500
+		Cost: 1700
 	Tooltip:
 		Name: Avatar
 	Buildable:
@@ -876,7 +813,7 @@ AVATAR:
 	SmokeParticleEmitter:
 		Offset: 0,0,1000
 	RenderSprites:
-		Scale: 0.8
+		Scale: 0.7
 
 SCRGLYDER2:
 	Inherits@1: ^HoverVehicle
@@ -891,7 +828,7 @@ SCRGLYDER2:
 		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Absorbs essence from killed units to heal.\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Glider
 	Health:
@@ -900,7 +837,13 @@ SCRGLYDER2:
 		Speed: 100
 	Transforms:
 		IntoActor: scrglyder1
-	Armament:
+	Armament@1:
+		Weapon: Glyder1Cannon
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 100,0,1500
+		PauseOnCondition: empdisable
+	Armament@2:
 		Weapon: Glyder2Cannon
 		Recoil: 85
 		RecoilRecovery: 25
@@ -916,35 +859,29 @@ SCRGLYDER2:
 
 SCRRECHARGER:
 	Inherits@1: ^Walker
+	Inherits@2: ^BasicStealthDetection
 	Inherits: ^ScrinVehicle
 	Valued:
-		Cost: 650
+		Cost: 700
 	Tooltip:
-		Name: Guardian
+		Name: Hunter
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 25
 		BuildAtProductionType: Tank
-		Description: Mobile shield generator.\n\nSpecial:\n- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.
+		Description: Light Tank armed with Photon Glaives.\n\nSpecial:\n- Can attack air\n- Can Crush infantry
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 80
+		Speed: 85
 	Health:
-		HP: 20000
-	-WithIdleOverlay@shield:
-	-Targetable@Shield:
-	-DamageMultiplier@Boarded6:
+		HP: 27500
 	Armament:
-		Weapon: VanguardShrapnel
-		TargetStances: Ally
-	ProximityExternalCondition@VanguardShield:
-		Condition: VanguardShield
-		Range: 4c0
-		AffectsParent: false
-	WithRangeCircle:
-		Range: 4c0
-		Type: VanguardShield
+		Weapon: HunterGlaive
+		PauseOnCondition: empdisable
+	Armament@AA:
+		Weapon: HunterGlaiveAA
+		PauseOnCondition: empdisable
 	Targetable:
 		TargetTypes: Ground, Vehicle
 	WithMuzzleOverlay:
@@ -957,8 +894,6 @@ SCRRECHARGER:
 		Sequence: stand
 	WithMoveAnimation:
 		MoveSequence: run
-	-GainsExperience:
-	-ProducibleWithLevel:
 
 SCRMBT:
 	Inherits@1: ^HoverVehicle
@@ -1037,7 +972,7 @@ ANHLTRPD:
 	Inherits@2: ^ScrinVehicle
 	Inherits@3: ^8CellVision
 	Valued:
-		Cost: 2200
+		Cost: 2500
 	Tooltip:
 		Name: Annihilator Tripod
 	Selectable:
@@ -1051,7 +986,7 @@ ANHLTRPD:
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 8
-		Speed: 95
+		Speed: 90
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	Health:
@@ -1084,3 +1019,5 @@ ANHLTRPD:
 	AnnounceOnBuildAS:
 		Voice: Build
 		OnlyToOwner: True
+	RenderSprites:
+		Scale: 0.8

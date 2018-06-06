@@ -7,7 +7,7 @@ SonicDefenceProj:
 		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
 		Inaccuracy: 0c0
 		Weapon: LurkerHit
-		Speed: 200
+		Speed: 150
 		ExplosionInterval: 3
 		ExplodeUnderThisAltitude: -9999
 		Blockable: False
@@ -21,7 +21,7 @@ SonicDefenceHit:
 	Range: 9c0
 	Report: lasershotgun.wav
 	Projectile: BulletAS
-		Speed: 400
+		Speed: 300
 		TrailImage: lurkertrail
 		TrailPalette: playercab
 		HorizontalRateOfTurn: 8
@@ -170,7 +170,7 @@ APCRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
-	Range: 5c0
+	Range: 6c0
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Projectile: BulletAS
 		Speed: 1c682
@@ -182,7 +182,7 @@ APCRifleAA:
 	Inherits: APCRifle
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-	Range: 6c0
+	Range: 7c0
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			AircraftArmor: 50
@@ -261,29 +261,69 @@ SlingFire:
 		Damage: 3500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
+QuadFire:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 20
+	Burst: 4
+    BurstDelays: 20
+	Range: 6c0
+	Report: cygun1.aud
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
+	MinRange: 1c0
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		InvalidTargets: Air
+		Damage: 3500
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
 SlingFireAA:
 	Inherits: QuadFire
-	Range: 7c512
+	Range: 8c0
 	ValidTargets: Air
 	Projectile: InstantHit
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		Damage: 1750
+		Damage: 2000
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath   
 
+FlakFire:
+	Inherits: ^FullDamage
+	Inherits: ^Small_Brnl
+	ReloadDelay: 50
+	Range: 10c0
+	Report: cygun1.aud
+	ValidTargets: Air
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		Damage: 4000
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, Water, Air, AirHit
+		ExplosionPalette: apolra2salpha
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piffs
+		ExplosionPalette: ra
+		ValidTargets: Water
+
 JuggCannon:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^APWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 66
+	ReloadDelay: 120
 	Range: 15c0
 	MinRange: 5c0
-	Report: jugger1.aud
+    Burst: 3
+    BurstDelays: 8
+	Report: jugfire0000.wav, jugfire0001.wav, jugfire0002.wav#specfire0000.wav, specfire0001.wav, specfire0002.wav
 	Projectile: BulletAS
-		Speed: 200
+		Speed: 250
 		Image: 120mm
-		LaunchAngle: 165
+		LaunchAngle: 90
 		Shadow: true
 		Inaccuracy: 2c0
 		Blockable: false
@@ -358,7 +398,7 @@ SonicZap:
 MammothTusk:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Mediumtwlt
-	ReloadDelay: 120
+	ReloadDelay: 160
 	Range: 6c0
 	Report: misl1.aud
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air

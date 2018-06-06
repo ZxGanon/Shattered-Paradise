@@ -36,7 +36,7 @@
 	Faction@Random:
 		Name: Random
 		InternalName: Random
-		Description: Random\n Not everyone has a chance to choose his life.
+		Description: Random\nGo for it!.
 		RandomFactionMembers: gdi, nod, scr
 	ResourceType@Tiberium:
 		Type: Tiberium

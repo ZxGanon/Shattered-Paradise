@@ -184,7 +184,7 @@ EAGLEGUARD:
 	Inherits: ^Soldier
 	Inherits@1: ^7CellVision
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Eagle Guard
 	Buildable:
@@ -354,15 +354,11 @@ TEMPLAR:
 				PathingCost: 70
 			BlueTiberium: 70
 				PathingCost: 70
-	Armament@1:
+	Armament:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
 		PauseOnCondition: WebDisable
 		Name: OnFoot
-	Armament@2:
-		Weapon: GTemplarFlame
-		LocalOffset: 200,50,320
-		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
@@ -410,7 +406,7 @@ NCONF:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
-		Description: Nod Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
+		Description: Nod Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Stealthed\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
 	Valued:

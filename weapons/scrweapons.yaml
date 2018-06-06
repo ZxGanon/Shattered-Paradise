@@ -1,3 +1,53 @@
+StormTowerHit:
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 150
+	Range: 9c0
+	Burst: 3
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Projectile: BulletAS
+		Speed: 4c6824
+		Blockable: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 150
+		Damage: 7000
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
+		ImpactSounds: expnew09.aud
+	Warhead@4: LeaveSmudge
+		SmudgeType: SmallCrater
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 2
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+        
+StormTowerHitAA:
+	Inherits: ^FullDamage
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 150
+	Range: 10c0
+	ValidTargets: Air
+	Projectile: BulletAS
+		Speed: 4c6824
+		Blockable: False
+	InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Spread: 150
+		Damage: 7000
+		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
+		ImpactSounds: expnew09.aud
+	Warhead@4: LeaveSmudge
+		SmudgeType: SmallCrater
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 2
+		AllowDirectHit: false
+		ValidTargets: Air, AirHit
+
 SharkJump:
 	Inherits: ^RifleWarhead
 	ValidTargets: Ground, Water
@@ -151,6 +201,36 @@ FloatTesla:
 		AimChance: 100
 		AllowDirectHit: True
 
+HunterGlaive:
+	Inherits: ^APWarhead
+	Inherits@2: ^Scrin_Pulse
+	ReloadDelay: 75
+	Range: 6c0
+    Burst: 3
+    Burstdelays: 5
+	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Speed: 300
+		RangeLimit: 14c0
+		Blockable: false
+		Shadow: true
+		Palette: apollightbluealpha
+		Image: glaive
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		ValidTargets: Ground, Water
+		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
+        
+HunterGlaiveAA:
+	Inherits: HunterGlaive
+	Range: 7c0
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+
 FloatGlaive:
 	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Pulse
@@ -222,15 +302,14 @@ FloatGlaive2:
 
 ScorpAcid:
 	Inherits: ^AcidWarhead
-	ReloadDelay: 100
-	Range: 4c0
+	ReloadDelay: 0
+	Range: 5c0
 	Burst: 12
 	BurstDelays: 1
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
 		Speed: 200
 		Image: acidall32
-		Inaccuracy: 1c0
 		Palette: apolgreenalpha
 	BurstDelays: 3
 	Warhead@1Dam: SpreadDamage
@@ -251,11 +330,6 @@ ScorpAcid:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-	Warhead@3Radio: CreateRadioactivity
-		Range: 1, 2
-		Level: 6
-		Falloff: 100, 37
-		MaxLevel: 1000
 
 MindController:
 	ReloadDelay: 300
@@ -396,13 +470,14 @@ StormRiderBlastAA:
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Scrin_Pulse
-	ReloadDelay: 25
-	Range: 5c0
+	ReloadDelay: 50
+	Range: 6c0
+    Burst: 3
 	MinRange: 0c100
 	Report: photon1.wav
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
-		Speed: 200
+		Speed: 250
 		Image: torpedo
 		Shadow: true
 		-TrailImage: small_smoke_trail
@@ -423,8 +498,9 @@ Glyder1Cannon:
 Glyder2Cannon:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Scrin_Pulse
-	ReloadDelay: 25
-	Range: 12c0
+	ReloadDelay: 50
+	Range: 7c0
+    Burst: 3
 	MinRange: 0c100
 	Report: photon1.wav
 	ValidTargets: Air
@@ -580,11 +656,6 @@ NeedlerAcid:
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
 		InvalidImpactTypes: Water
-	Warhead@3Radio: CreateRadioactivity
-		Range: 1, 2
-		Level: 6
-		Falloff: 100, 37
-		MaxLevel: 1000
 
 TractorBeam:
 	Inherits: ^FullDamage
