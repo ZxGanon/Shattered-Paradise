@@ -22,6 +22,7 @@ Player:
 	TeleportNetworkManager:
 		Type: mutantteleportnetwork
 	PlayerResources:
+        DefaultCash: 10000
 	DeveloperMode:
 		CheckboxEnabled: true
 	ProvidesTechPrerequisite@high:
@@ -43,4 +44,7 @@ Player:
 	PlaceSimpleBeacon:
 	ResourceStorageWarning:
 		AdviceInterval: 120
+
+        
+
 

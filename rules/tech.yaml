@@ -1,15 +1,278 @@
+WELL:
+	Inherits: ^TechBuilding
+	Inherits@1: ^SpawnSmoke
+	Inherits@2: ^3x3Shape
+	Tooltip:
+		Name: Tiberium Well (Awards money)
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Selectable:
+		Bounds: 90, 60, 0, -12
+	RenderSprites:
+		PlayerPalette: playersilo
+	CashTrickler:
+		Interval: 400
+		Amount: 100
+		CaptureAmount: 500
+	Health:
+		HP: 135000
+	RenderSprites:
+	Explodes:
+		Weapon: TiberiumExplosion
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolgreenalpha
+		Offset: 1300,0,0
+	GivesCashOnCapture:
+		Amount: 500
+
+MACHINESHOP:
+	Inherits: ^TechBuilding
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Machine Shop
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Selectable:
+		Bounds: 90, 60, 0, -12
+	RenderSprites:
+	Health:
+		HP: 100000
+	RenderSprites:
+	ProvidesPrerequisite@buildingname:
+
+BLOODDERRICK:
+	Inherits: ^TechBuilding
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Crab Hive
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Selectable:
+		Bounds: 102, 60, 0, 0
+	Health:
+		HP: 40000
+	Explodes:
+		Weapon: TiberiumExplosion
+	RenderSprites:
+		PlayerPalette: playerscrin
+	WithDeathAnimation:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+	SelectionDecorations:
+		VisualBounds: 102, 60, 0, 0
+	AttackOmni:
+	WithAttackAnimation:
+		AttackSequence: move
+	WithRangeCircle:
+		Range: 12c0
+		Type: Bounty
+	RejectsOrders:
+	Armament:
+		Weapon: DerrickAnimation
+		TargetStances: Ally, Enemy, Neutral
+	AutoTarget:
+	SpawnActorOnDeath@1:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: -1,-1
+	SpawnActorOnDeath@2:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,-1
+	SpawnActorOnDeath@3:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,-1
+	SpawnActorOnDeath@4:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,0
+	SpawnActorOnDeath@5:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,1
+	SpawnActorOnDeath@6:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,0
+	SpawnActorOnDeath@7:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	SpawnActorOnDeath@8:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	SpawnActorOnDeath@9:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	SpawnActorOnDeath@10:
+		Actor: permacrab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,1
+	-ExternalCapturable:
+	-ExternalCapturableBar:
+
+NEUTRALRADAR:
+	Inherits: ^TechBuilding
+	Inherits@3: ^2x2Shape
+	Tooltip:
+		Name: Surveilance Radar
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	Selectable:
+		Bounds: 102, 60, 0, 0
+	Health:
+		HP: 250000
+	RenderSprites:
+	SelectionDecorations:
+		VisualBounds: 70, 90, 0, -32
+	RevealsShroud:
+		Range: 14c0
+	ProvidesRadar:
+
+NEUTRALPOWERPLANT:
+	Inherits: ^TechBuilding
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Nuclear Powerplant (Provides build radius & explosive)
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+		Adjacent: 5
+	Selectable:
+		Bounds: 150, 110, 0, -32
+	Health:
+		HP: 150000
+	Power:
+		Amount: 200
+	RenderSprites:
+	SelectionDecorations:
+		VisualBounds: 150, 110, 0, -32
+	RevealsShroud:
+		Range: 5c0
+	GivesBuildableArea:
+		AreaTypes: building
+	BaseProvider:
+		Range: 8c0
+	RequiresBuildableArea:
+		AreaTypes: building
+	Explodes:
+		Weapon: PowerplantNuke
+		EmptyWeapon: PowerplantNuke
+
+SCRINREINFPAD:
+	Inherits: ^TechBuilding
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Scrin Replicator (Reinforcement Pad)
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Selectable:
+		Bounds: 120, 90, 0, -24
+	Health:
+		HP: 120000
+	RenderSprites:
+		PlayerPalette: playerscrin
+	SelectionDecorations:
+		# VisualBounds: 120, 90, 0, -32
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+		Offset: 1,4
+		Palette: mouse
+		IsPlayerPalette: false
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithIdleOverlay@production:
+		Sequence: production-lights
+		RequiresCondition: BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR
+	Exit@1:
+		SpawnOffset: 0,-256,0
+		ExitCell: 2,2
+		ExitDelay: 5
+	Production:
+		Produces: Vehicle
+	GrantConditionOnPrerequisite@GDI:
+		Condition: BuildStuffGDI
+		Prerequisites: structures.gdi
+	GrantConditionOnPrerequisite@NOD:
+		Condition: BuildStuffNOD
+		Prerequisites: structures.nod
+	GrantConditionOnPrerequisite@MUT:
+		Condition: BuildStuffMUT
+		Prerequisites: structures.mut
+	GrantConditionOnPrerequisite@CAB:
+		Condition: BuildStuffCAB
+		Prerequisites: structures.cab
+	GrantConditionOnPrerequisite@SCR:
+		Condition: BuildStuffSCR
+		Prerequisites: structures.scr
+	PeriodicProducer@GDI:
+		Actors: mmch
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffGDI
+	PeriodicProducer@NOD:
+		Actors: ttnk
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffNOD
+	PeriodicProducer@mut:
+		Actors: lynx
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffMUT
+	PeriodicProducer@cab:
+		Actors: reapercab
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffCAB
+	PeriodicProducer@scr:
+		Actors: scrmbt
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffSCR
+
 NAPULS:
-	Inherits: ^Defence
+	Inherits: ^TechBuilding
 	Inherits@4: ^2x2Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
 		Name: EMP Cannon
-#	Buildable:
-#		Queue: Defense
-#		BuildPaletteOrder: 32
-#		Prerequisites: ~humanstuff, radar
-#		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate.\n- Cannot be disabled.
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -19,12 +282,11 @@ NAPULS:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
-	-ToggleConditionOnOrder:
 	Health:
 		HP: 100000
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+	AutoTargetPriority@ATTACKANYTHING:
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 300
@@ -65,16 +327,3 @@ NAPULS:
 		PauseOnCondition: disabled
 	RequiresBuildableArea:
 		AreaTypes: building
-
-SCRSHIELD:
-	Inherits: NAPULS
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Tooltip:
-		Name: Stasis Field Generator
-#	Buildable:
-#		Prerequisites: scrradr, ~structures.scr
-	-WithSpriteTurret:
-	RenderSprites:
-		Image: scrshield
-		-FactionImages:

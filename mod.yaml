@@ -124,6 +124,7 @@ Rules:
 	sw|rules/trees.yaml
 	sw|rules/misc.yaml
 	sw|rules/dummies.yaml
+	sw|rules/tech.yaml
 
 Weapons:
 	sw|weapons/weapondefaults.yaml
