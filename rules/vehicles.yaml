@@ -261,7 +261,7 @@ JUG:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can crush infantry, vehicles and cyborgs
+		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can crush infantry, Heavy infantry and Vehicles
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -309,7 +309,7 @@ G4TNK:
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry, vehicles and cyborgs
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Can crush infantry, Heavy infantry and Vehicles
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -644,9 +644,6 @@ ARMH:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
-	Voiced:
-		VoiceSet: BeamCannonVO
-		Volume: 3
 	AnnounceOnBuildAS:
 		Voice: Build
 		OnlyToOwner: True
@@ -779,7 +776,7 @@ AVATAR:
 		Queue: Vehicle
 		BuildPaletteOrder: 17
 		BuildAtProductionType: Tank
-		Description: Advanced Walker armed with a Obelisk laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can crush infantry, vehicles and cyborgs
+		Description: Advanced Walker armed with a Obelisk laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can crush infantry, Heavy infantry and Vehicles
 		Prerequisites:  ~naweap, natech
 	Mobile:
 		TurnSpeed: 5
@@ -825,7 +822,7 @@ SCRGLYDER2:
 		Queue: Vehicle
 		BuildPaletteOrder: 24
 		BuildAtProductionType: Tank
-		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units.\n- Absorbs essence from killed units to heal.\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap
 	Valued:
 		Cost: 700
@@ -882,8 +879,6 @@ SCRRECHARGER:
 	Armament@AA:
 		Weapon: HunterGlaiveAA
 		PauseOnCondition: empdisable
-	Targetable:
-		TargetTypes: Ground, Vehicle
 	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -904,7 +899,7 @@ SCRMBT:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 26
-		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water).\nAbsorbs essence from killed units to heal.\n- Cannot crush infantry.
+		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot crush infantry.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
 		Cost: 1300
@@ -944,7 +939,7 @@ SCRSCORPION:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 27
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.
 		Prerequisites: ~scrweap, scrradr
 	Mobile:
 		TurnSpeed: 6
@@ -982,7 +977,7 @@ ANHLTRPD:
 		BuildPaletteOrder: 28
 		BuildAtProductionType: Tank
 		Prerequisites: ~scrweap, scrtech
-		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal\n- Can crush infantry, vehicles and cyborgs
+		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Can crush infantry, Heavy infantry and Vehicles
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 8

@@ -225,7 +225,7 @@ NALASR:
 	Tooltip:
 		Name: Laser Turret
 	Buildable:
-		Description: High tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
+		Description: High tech laser defense.\n\nGood vs: Vehicles.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Building
 		Prerequisites: naweap, ~structures.nod
 		BuildPaletteOrder: 13
@@ -333,6 +333,8 @@ NAOBEL:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	RenderSprites:
+		Scale: 0.8
 
 SCRNEEDLER:
 	Inherits: ^Defence

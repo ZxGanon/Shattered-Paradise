@@ -61,7 +61,7 @@ SharkJump:
 		Versus:
 			BuildingArmor: 15
 		Spread: 0c030
-		DamageTypes: BulletDeath, ScrinEssenceKill
+		DamageTypes: BulletDeath
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Damage: 2000
@@ -69,7 +69,7 @@ SharkJump:
 		Versus:
 			BuildingArmor: 15
 		Spread: 0c030
-		DamageTypes: BulletDeath, ScrinEssenceKill
+		DamageTypes: BulletDeath
 		InvalidTargets: Building, Vehicle
 		ValidStances: Enemy, Neutral
 
@@ -91,10 +91,10 @@ LegioNeedler:
 		Damage: 4000
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air, Shark
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Shark: SpreadDamage
 		Damage: 3000
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 		InvalidTargets: Building, Vehicle, Air
 		ValidStances: Enemy, Neutral
 		ValidTargets: Shark
@@ -109,7 +109,7 @@ ColossiTesla:
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 20000
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@op: FireShrapnel
 		Weapon: ColossiTeslaSplash
 		Amount: 2
@@ -139,7 +139,7 @@ ColossiBlast:
 			VehicleArmor: 20
 			DefenseArmor: 20
 			ConcreteArmor: 2
-		DamageTypes: FireDeath, ScrinEssenceKill
+		DamageTypes: FireDeath
 	# Warhead@2Eff: CreateEffect
 		# Explosions: colossiglow
 		# ExplosionPalette: colossiglow
@@ -194,7 +194,7 @@ FloatTesla:
 		Palette: apolredalpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
 		Amount: 2
@@ -220,7 +220,7 @@ HunterGlaive:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
 		ValidTargets: Ground, Water
-		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: SmallExplosionDeath
         
 HunterGlaiveAA:
 	Inherits: HunterGlaive
@@ -248,7 +248,7 @@ FloatGlaive:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water
-		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: SmallExplosionDeath
 	Warhead@op: FireShrapnel
 		Weapon: FloatGlaive2
 		Amount: 1
@@ -315,12 +315,12 @@ ScorpAcid:
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 975
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Spread: 250
 		Damage: 975
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		Versus:
 			InfantryArmor: 160
 			BuildingArmor: 75
@@ -378,7 +378,7 @@ SCRMBTLASOR:
 			DefenseArmor: 100
 			AircraftArmor: 100
 			ConcreteArmor: 35
-		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath
 		InvalidTargets: Shark
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -411,7 +411,7 @@ TripodLaser:
 			DefenseArmor: 100
 			AircraftArmor: 100
 			ConcreteArmor: 35
-		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath
 		InvalidTargets: Shark
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
@@ -447,14 +447,14 @@ StormRiderBlast:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 		InvalidTargets: Shark, Air
 	Warhead@2Shark: SpreadDamage
 		Damage: 2000
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle, Air
 		ValidStances: Enemy, Neutral
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 96
 
@@ -535,7 +535,7 @@ BattleshipCannon:
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
 		ValidTargets: Ground, Water, Infantry, Vehicle, water
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 DestroyerCannon:
 	Inherits: ^ArtilleryWarhead
@@ -557,7 +557,7 @@ DestroyerCannon:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1c0
 		Damage: 7000
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse2
 		ExplosionPalette: effectalpha50
@@ -615,7 +615,7 @@ WyvermBlast:
 			DefenseArmor: 100
 			BuildingArmor: 50
 		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 WyvermBlastAA:
 	Inherits: WyvermBlast
@@ -640,7 +640,7 @@ NeedlerAcid:
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 800
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Spread: 250
@@ -648,7 +648,7 @@ NeedlerAcid:
 		Versus:
 			InfantryArmor: 150
 			BuildingArmor: 75
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
 		ValidStances: Enemy, Neutral
@@ -705,7 +705,7 @@ DronePlane:
 		Spread: 150
 		Damage: 3000
 		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect
@@ -1005,7 +1005,7 @@ HealScrin:
 		# Spread: 128
 		# Damage: 1500
 		# Versus:
-		# DamageTypes: Prone100Percent, TriggerProne, ScrinEssenceKill
+		# DamageTypes: Prone100Percent, TriggerProne
 		# ValidTargets: Infantry, Vehicle, Building
 		# ValidStances: Enemy, Neutral
 	# Warhead@Bouncing: CreateEffect

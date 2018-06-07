@@ -528,8 +528,6 @@ SCRDESTROYER:
 		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
-	Targetable@Essence:
-		TargetTypes: ScrinUnit
 	Health:
 		HP: 30000
 	Armament:
@@ -570,8 +568,6 @@ SCRCARRIER:
 		Prerequisites: ~scrair, scrtech
 	Voiced:
 		VoiceSet: Deva
-	Targetable@Essence:
-		TargetTypes: ScrinUnit
 	Selectable:
 		Bounds: 90,55
 	Aircraft:
