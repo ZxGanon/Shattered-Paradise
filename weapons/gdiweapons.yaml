@@ -1,3 +1,26 @@
+HammerheadGun:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 5
+    Burst: 5
+    BurstDelays: 5
+	Range: 5c0
+	MinRange: 0c100
+	InvalidTargets: Air
+	Report: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 300
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
+		InvalidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		Versus:
+			InfantryArmor: 150
+            VehicleArmor: 70
+			BuildingArmor: 70
+            DefenseArmor: 70
+
 SonicDefenceProj:
 	Inherits: ^FullDamage
 	ReloadDelay: 100

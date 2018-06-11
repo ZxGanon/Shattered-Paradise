@@ -503,7 +503,7 @@
 ^MachineShopHeal:
 	SelfHealing@MachineShopHeal:
 		PercentageStep: 1
-		Delay: 25
+		Delay: 20
 		HealIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: MachineShopHeal
@@ -518,6 +518,8 @@
 		Palette: player
 		ShowToEnemies: true
 		RequiresCondition: MachineShopHeal
+	ExternalCondition@MachineShopHeal:
+		Condition: MachineShopHeal
 
 ^VeinholePoisonVehicle:
 	SelfHealing@veinholedrain:

@@ -323,7 +323,9 @@ ScorpAcid:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		Versus:
 			InfantryArmor: 160
-			BuildingArmor: 75
+			BuildingArmor: 100
+            VehicleArmor: 25
+            DefenseArmor: 50
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
 		ValidStances: Enemy, Neutral
@@ -538,7 +540,7 @@ BattleshipCannon:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 DestroyerCannon:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^APWarhead
 	Inherits@1: ^Large_Explosion
 	ReloadDelay: 150
 	Range: 14c0
@@ -557,6 +559,8 @@ DestroyerCannon:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1c0
 		Damage: 7000
+		Versus:
+			InfantryArmor: 150
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse2

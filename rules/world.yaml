@@ -87,7 +87,7 @@ World:
 	HelpCommand:
 	BuildingInfluence:
 	ProductionQueueFromSelection:
-		ProductionPaletteWidget: PRODUCTION_PALETTE
+		ProductionTabsWidget: PRODUCTION_TABS
 	DomainIndex:
 	BridgeLayer:
 	RadioactivityLayer@Default:
@@ -226,7 +226,7 @@ World:
 	ObjectivesPanel:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
-		ShellmapRoot: MAINMENU_PRERELEASE_NOTIFICATION
+		ShellmapRoot: MENU_BACKGROUND
 
 EditorWorld:
 	Inherits: ^BaseWorld

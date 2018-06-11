@@ -1,3 +1,26 @@
+CAHOSP:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^3x4Shape
+	Tooltip:
+		Name: Civilian Hospital
+	Building:
+		Footprint: XxX xxx xxx xxx
+		Dimensions: 3, 4
+	Health:
+		HP: 80000
+	ProvidesPrerequisite@BuildingName:
+	ThrowsShrapnel@SMALL:
+		Pieces: 5, 9
+	ThrowsShrapnel@LARGE:
+		Pieces: 2, 4
+	EditorTilesetFilter:
+		Categories: Civilian building
+	WithIdleOverlay:
+		Sequence: flag
+	WithIdleOverlay@g:
+		Sequence: flagg
+	ProvidesPrerequisite@buildingname:
+
 WELL:
 	Inherits: ^TechBuilding
 	Inherits@1: ^SpawnSmoke

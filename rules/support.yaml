@@ -9,9 +9,9 @@ GAVULC:
 		Name: Vulcan Tower
 	Buildable:
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 10
-		Prerequisites: gapile, ~structures.gdi
+		Prerequisites: gapowr, ~structures.gdi
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
@@ -59,9 +59,9 @@ MUCANNON:
 	Tooltip:
 		Name: Guardian Cannon
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		Description: Anti-Armor base defense.\n\nGood vs: Vehicles\n\nSpecial:\n- Require power to operate
-		Prerequisites: gaweap, ~structures.mut
+		Prerequisites: gapile, ~structures.gdi
 		BuildPaletteOrder: 11
 	Building:
 	Selectable:
@@ -99,7 +99,7 @@ MUFLAK:
 	Tooltip:
 		Name: Flak Station
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air\n- Requires power to operate
 		Prerequisites: garadr, ~structures.gdi
 		BuildPaletteOrder: 12
@@ -137,7 +137,7 @@ CABBLAST:
 	Tooltip:
 		Name: Sonic Emitter
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		Description: Heavy defense armed with a Sonic Cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Provides stealth detection\n- Requires power to operate
 		Prerequisites: gatech, ~structures.gdi
 		BuildPaletteOrder: 21
@@ -175,9 +175,9 @@ SHREDDER:
 		Name: Shredder Turret
 	Buildable:
 		Description: Basic base defense.\n\nGood vs: Infantry.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 12
-		Prerequisites: nahand, ~structures.nod
+		Prerequisites: napowr, ~structures.nod
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
@@ -226,8 +226,8 @@ NALASR:
 		Name: Laser Turret
 	Buildable:
 		Description: High tech laser defense.\n\nGood vs: Vehicles.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Building
-		Prerequisites: naweap, ~structures.nod
+		Queue: Defence
+		Prerequisites: nahand, ~structures.nod
 		BuildPaletteOrder: 13
 	Building:
 	Selectable:
@@ -260,7 +260,7 @@ NASAM:
 		Name: S.A.M. Site
 	Buildable:
 		Description: Anti-Air base defense.\n\nGood vs: Aircraft.\n\nSpecial\n- Can attack Air.\n- Requires power to operate.
-		Queue: Building
+		Queue: Defence
 		Prerequisites: naradr, ~structures.nod
 		BuildPaletteOrder: 14
 	Building:
@@ -290,51 +290,55 @@ NASAM:
 		AreaTypes: building
 
 NAOBEL:
-	Inherits: ^Tier2
-	Inherits@1: ^TowerStealthDetection
-	Inherits@2: ^2x2Shape
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: Obelisk of Light
-	Buildable:
-		Description: Advanced high tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
-		Queue: Building
-		BuildPaletteOrder: 15
-		Prerequisites: natech, ~structures.nod
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Selectable:
-		Bounds: 88, 130, 0, -36
-		DecorationBounds: 88, 130, 0, -36
-	Health:
-		HP: 100000
-	WithMuzzleOverlay:
-	Armament:
-		Weapon: ObeliskLaserFire
-		LocalOffset: 4455,-636,1131
-	AttackCharges:
-		PauseOnCondition: empdisable || disabled
-		ChargeLevel: 70
-		ChargingCondition: charging
-	AmbientSound:
-		RequiresCondition: charging && !disabled
-		SoundFiles: obelcharge01.aud
-		# Interval: 70
-	WithChargeOverlay:
-		Sequence: active
-		Palette: player
-		IsPlayerPalette: true
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	Power:
-		Amount: -50
-	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
-	RenderSprites:
-		Scale: 0.8
+    Inherits: ^Tier2
+    Inherits@1: ^TowerStealthDetection
+    Inherits@2: ^2x2Shape
+    Valued:
+        Cost: 1500
+    Tooltip:
+        Name: Obelisk of Light
+    Buildable:
+        Description: Advanced high tech laser defense.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
+        Queue: Defence
+        BuildPaletteOrder: 15
+        Prerequisites: natech, ~structures.nod
+    Building:
+        Footprint: xx xx
+        Dimensions: 2,2
+    Selectable:
+        Bounds: 88, 130, 0, -36
+        DecorationBounds: 88, 130, 0, -36
+    Health:
+        HP: 100000
+    WithMuzzleOverlay:
+    Armament:
+        Weapon: ObeliskLaserFire
+        LocalOffset: 4455,-636,1131
+    AttackCharges:
+        PauseOnCondition: empdisable || disabled
+        ChargeLevel: 70
+        ChargingCondition: charging
+    AmbientSound:
+        RequiresCondition: charging && !disabled
+        SoundFiles: obelcharge01.aud
+        Interval: 70
+    # WithChargeOverlay:
+        # Sequence: active
+        # Palette: player
+        # IsPlayerPalette: true
+    WithIdleOverlay@charging:
+        Sequence: active
+        RequiresCondition: charging
+    WithIdleOverlay@LIGHTS:
+        Sequence: idle-lights
+        RequiresCondition: !charging
+    Power:
+        Amount: -50
+    SelectionDecorations:
+    RequiresBuildableArea:
+        AreaTypes: building
+    RenderSprites:
+        Scale: 0.8
 
 SCRNEEDLER:
 	Inherits: ^Defence
@@ -346,9 +350,9 @@ SCRNEEDLER:
 	Tooltip:
 		Name: Ichor Waste Turret
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
-		Prerequisites: scrrax, ~structures.scr
+		Prerequisites: scrpowr, ~structures.scr
 		BuildPaletteOrder: 23
 	Building:
 	Selectable:
@@ -396,10 +400,10 @@ SCRDRONE:
 	Tooltip:
 		Name: Visceroid Hive
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 24
 		Description: Advanced base defense.\n\nGood vs Ground targets.\n\nSpecial:\n- Throws Visceroids at enemies.\n- Requires power to operate.
-		Prerequisites: scrweap, ~structures.scr
+		Prerequisites: scrrax, ~structures.scr
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -430,7 +434,7 @@ SCRTRACTOR:
 		Name: Tractor Beam
 	Buildable:
 		Description: Scrin Anti-Air base defense\n\nGood vs Aircraft\n\nSpecial:\n- Can attack air.\n- Freezes the targetted aircraft momentarily.\n- Requires power to operate.
-		Queue: Building
+		Queue: Defence
 		Prerequisites: scrradr, ~structures.scr
 		BuildPaletteOrder: 25
 	Building:
@@ -483,11 +487,11 @@ SCREXTRACTOR:
 	Inherits@4: ^ScrinDeathExplo
 	Inherits@5: ^TowerStealthDetection
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
 		Name: Storm Tower
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 26
 		Description: Advanced defence structure..\n\nSpecial:\n- Generates storm clouds hitting enemy units\n-Can attack air\n- Requires power to operate.
 		Prerequisites: scrtech, ~structures.scr
@@ -516,12 +520,12 @@ SCREXTRACTOR:
 GAPOWRUP:
 	Inherits: ^BuildingPlug
 	Valued:
-		Cost: 300
+		Cost: 500
 	Tooltip:
 		Name: Power Turbine
 	Buildable:
 		Description: Provides extra power generation, place them on the smokestack of the structure.
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 30
 		Prerequisites: gapowr, garadr, ~structures.gdi
 	Plug:
@@ -534,7 +538,7 @@ GAPLUG:
 	Inherits@2: ^2x3Shape
 	Inherits@3: ^SuperWeapon
 	Valued:
-		Cost: 3000
+		Cost: 4000
 	Tooltip:
 		Name: Ion Cannon Control Center
 	Selectable:
@@ -544,7 +548,7 @@ GAPLUG:
 		BuildPaletteOrder: 41
 		Prerequisites: proc, gatech, ~structures.gdi, ~techlevel.unrestricted
 		Description: Communications facility for the Ion Cannon Array.\n\nSpecial:\n- Provides access to Ion Cannon Alpha Strike\n- Requires power to operate
-		Queue: Building
+		Queue: Defence
 		BuildLimit: 1
 	Building:
 		Footprint: xxx xxx
@@ -561,7 +565,7 @@ GAPLUG:
 		DisplayTimer: True
 		DisplayBeacon: True
 		LongDesc: Fires an array of ion cannons on the targetted area.
-		ChargeInterval: 6000
+		ChargeInterval: 9000
 		ActivationSequence: idle
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
@@ -598,7 +602,7 @@ NASTLH:
 		BuildPaletteOrder: 43
 		Prerequisites: proc, natech, ~structures.nod
 		Description: Support structure that cloacks friendly units and buildings.\n\nSpecial:\n- Cloacks friendly assets around it.\n- Generator itself is not cloacked.\n- Requires power to operate.
-		Queue: Building
+		Queue: Defence
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -635,14 +639,14 @@ NATMPL:
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 44
 		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
 		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate.
 		BuildLimit: 1
 	ProvidesPrerequisite@buildingname:
 	Valued:
-		Cost: 3000
+		Cost: 4000
 	HitShape:
 		Type: Rectangle
 			TopLeft: -2000, -2000
@@ -703,13 +707,13 @@ SCRSW1:
 	Inherits@4: ^3x2Shape
 	Inherits@5: ^SuperWeapon
 	Buildable:
-		Queue: Building
+		Queue: Defence
 		BuildPaletteOrder: 50
 		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
 		Description: Allows the player to call in meteor storm strikes.\n\nSpecial:\n- Provides access to the Wrath of the Creator superweapon.\n- Requires power to operate.
 		BuildLimit: 1
 	Valued:
-		Cost: 3000
+		Cost: 4000
 	Tooltip:
 		Name: Signal Transmitter
 	Building:
@@ -722,7 +726,7 @@ SCRSW1:
 	DetonateWeaponPower@nanomachinesson:
 		Cursor: emp
 		Icon: meteor
-		ChargeInterval: 6000
+		ChargeInterval: 9000
 		Description: Wrath of the Creator
 		LongDesc: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		Prerequisites: MeteorSpawner

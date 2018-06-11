@@ -5,17 +5,17 @@ HVR:
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^8CellVision
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Hover MLRS
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Hovering vehicle, armed with long range missiles.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealth detection\n- Can attack Air\n- Hovers (it ignores terrain like Veins and Water)
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		Speed: 90
+		Speed: 125
 		TurnSpeed: 9
 		TerrainSpeeds:
 	Health:
@@ -62,7 +62,7 @@ APC:
 		Prerequisites: ~gaweap, gapile
 	Mobile:
 		TurnSpeed: 5
-		Speed: 100
+		Speed: 82
 		TerrainSpeeds:
 			Water: 60
 	Health:
@@ -121,7 +121,7 @@ MMCH:
 	Inherits: ^Walker
 	Inherits@1: ^8CellVision
 	Valued:
-		Cost: 1000
+		Cost: 1100
 	Tooltip:
 		Name: Archon Tank
 	Buildable:
@@ -132,7 +132,7 @@ MMCH:
 		Prerequisites: ~gaweap
 	Mobile:
 		TurnSpeed: 5
-		Speed: 80
+		Speed: 70
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 40000
@@ -165,23 +165,22 @@ MMCH:
 MUTQUAD:
 	Inherits: ^VoxelTank
 	Inherits@1: ^Ra2vxl
-	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^MutRender
 	Inherits@4: ^HoverVehicle
 	Inherits@5: ^8CellVision
 	Valued:
-		Cost: 700
+		Cost: 1000
 	Tooltip:
 		Name: Slingshot
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 5
-		Description: Armored truck armed with a quad cannon.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Stealth detection\n- Can crush infantry
+		Description: Armored truck armed with a quad cannon.\n\nGood vs: Aircraft\n\nSpecial:\n- Can only attack Air\n- Hovers (it ignores terrain like Veins and Water)\n- Can crush infantry
 		Prerequisites: ~gaweap, garadr
 	Mobile:
 		TurnSpeed: 10
-		Speed: 115
+		Speed: 135
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 30000
@@ -216,21 +215,22 @@ MUTQUAD:
 
 SONIC:
 	Inherits: ^VoxelTank
-	Inherits@1: ^8CellVision
+	Inherits@1: ^HoverVehicle
+	Inherits@2: ^8CellVision
 	Valued:
-		Cost: 1400
+		Cost: 1500
 	Tooltip:
-		Name: Zone Shatterer
+		Name: Shatterer
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
-		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire.\n- Can crush infantry.
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage to any unit in line of fire\n- Hovers (it ignores terrain like Veins and Water)\n- Can crush infantry.
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, garadr
 	-RejectsOrders@berserk:
 	Mobile:
 		TurnSpeed: 4
-		Speed: 80
+		Speed: 70
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 35000
@@ -250,22 +250,78 @@ SONIC:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
 	WithMuzzleOverlay:
+	-SelfHealing@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
 
+G4TNK:
+	Inherits: ^VoxelTank
+	Inherits@1: ^8CellVision
+	Inherits@2: ^IncompleteSelfHeal
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Mammoth Tank
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Can crush infantry, Heavy infantry and Vehicles
+		BuildPaletteOrder: 7
+		Prerequisites: ~gaweap, gatech
+	Mobile:
+		Speed: 55
+		TurnSpeed: 4
+		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
+	Health:
+		HP: 70000
+	Turreted:
+		TurnSpeed: 3
+		Offset: -200,0,0
+	Armament@1:
+		Weapon: 4tnkgun
+		LocalOffset: 1150,120,550, 1150,-120,550
+		MuzzleSequence: muzzle
+		Recoil: 127
+		RecoilRecovery: 26
+		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: MammothTusk
+		LocalOffset: 100,400,650
+		PauseOnCondition: empdisable
+	Armament@3:
+		Weapon: MammothTusk
+		LocalOffset: 100,-400,650
+		PauseOnCondition: empdisablez
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+    
 JUG:
 	Inherits: ^Walker
 	Inherits@1: ^5CellVision
 	Valued:
-		Cost: 1700
+		Cost: 2200
 	Tooltip:
 		Name: Juggernaut
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		Description: Heavy mechanized artillery walker.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can crush infantry, Heavy infantry and Vehicles
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 65
+		Speed: 50
         TurnSpeed: 5
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
@@ -298,134 +354,6 @@ JUG:
 		QuantizedFacings: 8
 		CameraPitch: 250
 
-G4TNK:
-	Inherits: ^VoxelTank
-	Inherits@1: ^8CellVision
-	Inherits@2: ^IncompleteSelfHeal
-	Valued:
-		Cost: 2000
-	Tooltip:
-		Name: Mammoth Tank
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Can crush infantry, Heavy infantry and Vehicles
-		BuildPaletteOrder: 8
-		Prerequisites: ~gaweap, gatech
-	Mobile:
-		Speed: 60
-		TurnSpeed: 4
-		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
-    -Crushable:
-	Health:
-		HP: 70000
-	Turreted:
-		TurnSpeed: 3
-		Offset: -200,0,0
-	Armament@PRIMARY:
-		Weapon: 4tnkgun
-		LocalOffset: 1150,120,550, 1150,-120,550
-		MuzzleSequence: muzzle
-		Recoil: 127
-		RecoilRecovery: 26
-		PauseOnCondition: empdisable
-	Armament@SECONDARY:
-		Weapon: MammothTusk
-		LocalOffset: 100,400,650, 100,-400,650
-		PauseOnCondition: empdisable
-	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	BodyOrientation:
-		QuantizedFacings: 32
-		CameraPitch: 250
-	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
-	WithSpriteTurret:
-	WithMuzzleOverlay:
-
-HMEC:
-	Inherits: ^VoxelTank
-	Inherits@1: ^10CellVision
-	Inherits@1: ^PermanentSelfHeal
-	Valued:
-		Cost: 4000
-	Tooltip:
-		Name: Mammoth Mk. II
-#	Buildable:
-#		Queue: Vehicle
-#		BuildPaletteOrder: 9
-#		Prerequisites: ~gaweap, gtdrop
-#		BuildAtProductionType: Mammoth
-#		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.\n- Can crush vehicles and cyborgs.\n- It is deployed via dropship at the Dropship Bay.
-#		BuildLimit: 1
-	Mobile:
-		TurnSpeed: 3
-		Speed: 40
-		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
-    -Crushable:
-	-RejectsOrders@berserk:
-	Health:
-		HP: 200000
-	AnnounceOnSeen:
-		Notification: MammothDetected
-	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
-		Turrets: primary, secondary, third
-		Armaments: primary, secondary, third
-	BodyOrientation:
-		QuantizedFacings: 8
-		CameraPitch: 250
-	AutoTarget:
-	Armament:
-		Weapon: MKIITusk
-		LocalOffset: 0,0,2800
-		Turret: secondary
-		Name: secondary
-		PauseOnCondition: empdisable
-	Armament@1:
-		Weapon: MKIITusk
-		LocalOffset: 0,0,2800
-		Turret: third
-		Name: third
-		FireDelay: 5
-		PauseOnCondition: empdisable
-	Armament@2:
-		Weapon: MechRailgun2
-		LocalOffset: 1200,-250,2650, 1200,250,2650
-		PauseOnCondition: empdisable
-		MuzzleSequence: muzzle
-	Targetable@MindControl:
-		TargetTypes: MindControlInmune
-	-WithVoxelBody:
-	Turreted:
-		Offset: -500,0,0
-		TurnSpeed: 3
-	Turreted@2:
-		Offset: 600,300,-400
-		TurnSpeed: 6
-		Turret: secondary
-	Turreted@3:
-		Offset: 600,-300,-400
-		TurnSpeed: 6
-		Turret: third
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-	WithSpriteTurret@2
-		Sequence: turret2
-		Turret: secondary
-	WithSpriteTurret@3
-		Sequence: turret2
-		Turret: third
-	WithFacingSpriteBody:
-	WithMoveAnimation:
-		MoveSequence: run
-	Selectable:
-		Bounds: 40, 40, 0, -8
-
 NODMCV:
 	Inherits: MCV
 	Buildable:
@@ -455,7 +383,7 @@ BGGY:
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^7CellVision
 	Valued:
-		Cost: 400
+		Cost: 500
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -466,7 +394,7 @@ BGGY:
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 16
-		Speed: 135
+		Speed: 140
 		Crushes: crate
 	Turreted:
 		Offset: -250,0,400
@@ -500,18 +428,18 @@ BIKE:
 	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^7CellVision
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Nod Mot
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 11
-		Description: Fast moving anti armor bike.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air
+		Description: Fast moving anti armor bike.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealth detection.\n- Can attack air
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 135
+		Speed: 170
 		Crushes: crate
 	Armor@Bike:
 		Type: Bike
@@ -530,7 +458,11 @@ BIKE:
 		Weapon: BikeMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
 		PauseOnCondition: empdisable
-	AttackFrontal:
+	Turreted:
+	AutoTarget:
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
@@ -548,12 +480,12 @@ LYNX:
 		BuildPaletteOrder: 12
 		Prerequisites: ~naweap
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
 		Name: Scorpion Tank
 	Mobile:
 		TurnSpeed: 7
-		Speed: 100
+		Speed: 85
 		Crushes: wall, crate, infantry
 	WithFacingSpriteBody:
 	Health:
@@ -587,7 +519,7 @@ SUBTANK:
 	Inherits: ^VoxelTank
 	Inherits@1: ^8CellVision
 	Valued:
-		Cost: 1000
+		Cost: 1200
 	Tooltip:
 		Name: Pyradon Flame Tank
 	Buildable:
@@ -598,7 +530,7 @@ SUBTANK:
 		Prerequisites: ~naweap, naradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 95
+		Speed: 85
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 30000
@@ -606,7 +538,9 @@ SUBTANK:
 		Weapon: DevilsFlame
 		LocalOffset: 0,400,0
 		PauseOnCondition: empdisable
-	AttackFrontal:
+	Turreted:
+	AutoTarget:
+	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
@@ -619,7 +553,7 @@ ARMH:
 	Inherits: ^VoxelTank
 	Inherits@1: ^5CellVision
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Beam Cannon
 	Buildable:
@@ -631,7 +565,7 @@ ARMH:
 	Health:
 		HP: 16000
 	Mobile:
-		Speed: 70
+		Speed: 85
 		TurnSpeed: 5
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -656,7 +590,7 @@ STNK:
 	Inherits: ^VoxelTank
 	Inherits@1: ^8CellVision
 	Valued:
-		Cost: 1400
+		Cost: 1800
 	Tooltip:
 		Name: Stealth Tank
 	Buildable:
@@ -667,7 +601,7 @@ STNK:
 		Queue: Vehicle
 	Mobile:
 		TurnSpeed: 7
-		Speed: 115
+		Speed: 130
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 20000
@@ -721,7 +655,7 @@ HOWTLIZER:
 	Inherits: ^VoxelTank
 	Inherits@1: ^5CellVision
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Specter
 	Buildable:
@@ -733,8 +667,9 @@ HOWTLIZER:
 	Health:
 		HP: 12000
 	Mobile:
-		Speed: 80
+		Speed: 110
 		TurnSpeed: 8
+		Crushes: wall, crate, infantry
 	Cloak@cloakgenerator:
 		InitialDelay: 170
 		CloakDelay: 170
@@ -769,18 +704,18 @@ AVATAR:
 	Inherits@1: ^8CellVision
 	Inherits@2: ^CabRender
 	Valued:
-		Cost: 1700
+		Cost: 2200
 	Tooltip:
 		Name: Avatar
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 17
 		BuildAtProductionType: Tank
-		Description: Advanced Walker armed with a Obelisk laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can crush infantry, Heavy infantry and Vehicles
+		Description: Advanced Walker armed with an Obelisk laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can crush infantry, Heavy infantry and Vehicles
 		Prerequisites:  ~naweap, natech
 	Mobile:
 		TurnSpeed: 5
-		Speed: 80
+		Speed: 60
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	-RejectsOrders@berserk:
@@ -814,15 +749,14 @@ AVATAR:
 
 SCRGLYDER2:
 	Inherits@1: ^HoverVehicle
-	Inherits: ^ScrinVehicle
-	Inherits@2: ^AutoTargetGround
-	Inherits@3: ^BasicStealthDetection
-	Inherits@1: ^8CellVision
+	Inherits@2: ^ScrinVehicle
+	Inherits@3: ^AutoTargetGround
+	Inherits@4: ^8CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 24
 		BuildAtProductionType: Tank
-		Description: Anti air hover vehicle.\n\nGood vs Aircraft\n\nSpecial:\n- Can transform into an aerial version that can only engage ground units\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
+		Description: Anti air hover vehicle.\n\nGood vs Infantry, Aircraft\n\nSpecial:\n- Can transform into an aerial version\nBUG: Switching modes will make the unit loose any accumulated experience.\n- Hovers (it ignores terrain like Veins and Water)
 		Prerequisites: ~scrweap
 	Valued:
 		Cost: 700
@@ -831,7 +765,8 @@ SCRGLYDER2:
 	Health:
 		HP: 25000
 	Mobile:
-		Speed: 100
+		Speed: 85
+		Crushes: wall, crate, infantry
 	Transforms:
 		IntoActor: scrglyder1
 	Armament@1:
@@ -859,7 +794,7 @@ SCRRECHARGER:
 	Inherits@2: ^BasicStealthDetection
 	Inherits: ^ScrinVehicle
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
 		Name: Hunter
 	Buildable:
@@ -870,7 +805,7 @@ SCRRECHARGER:
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 85
+		Speed: 100
 	Health:
 		HP: 27500
 	Armament:
@@ -880,8 +815,10 @@ SCRRECHARGER:
 		Weapon: HunterGlaiveAA
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
-	AttackFrontal:
+	AttackTurreted:
 		PauseOnCondition: empdisable
+	WithSpriteTurret:
+	Turreted:
 	AutoTarget:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
@@ -902,14 +839,15 @@ SCRMBT:
 		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Cannot crush infantry.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
-		Cost: 1300
+		Cost: 1600
 	Tooltip:
 		Name: Hover Tank
 	Health:
 		HP: 30000
 	Mobile:
     	TurnSpeed: 7
-		Speed: 90
+		Speed: 65
+		Crushes: wall, crate, infantry
 	Turreted:
 		TurnSpeed: 6
 	Armament:
@@ -918,7 +856,7 @@ SCRMBT:
 		PauseOnCondition: empdisable
 	AttackTurreted:
 		PauseOnCondition: empdisable
-	WithSpriteTurret:
+	Turreted:
 	AutoTarget:
 	RenderSprites:
 	WithFacingSpriteBody:
@@ -932,19 +870,19 @@ SCRSCORPION:
 	Inherits@1: ^6CellVision
 	Inherits@2: ^BasicStealthDetection
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Tooltip:
 		Name: Ichor Walker
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Tank
 		BuildPaletteOrder: 27
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles\n- Heals friendly Scrin units
 		Prerequisites: ~scrweap, scrradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 85
-		Crushes: crate
+		Speed: 80
+		Crushes: wall, crate, infantry
 	Health:
 		HP: 50000
 	AttackFrontal:
@@ -967,7 +905,7 @@ ANHLTRPD:
 	Inherits@2: ^ScrinVehicle
 	Inherits@3: ^8CellVision
 	Valued:
-		Cost: 2500
+		Cost: 3000
 	Tooltip:
 		Name: Annihilator Tripod
 	Selectable:
@@ -981,7 +919,7 @@ ANHLTRPD:
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 8
-		Speed: 90
+		Speed: 70
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	Health:

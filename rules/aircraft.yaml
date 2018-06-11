@@ -74,7 +74,7 @@ ORCA:
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1400
+		Cost: 1100
 	Tooltip:
 		Name: Orca Fighter
 	Buildable:
@@ -86,7 +86,7 @@ ORCA:
 		Bounds: 30,24
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 160
+		Speed: 185
 		MoveIntoShroud: true
 	AutoTarget:
 		InitialStance: HoldFire
@@ -117,13 +117,75 @@ ORCA:
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
 
+WASP:
+	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@2: ^11CellVision
+	Inherits@3: ^CabRender
+	Inherits@Shadow: ^AircraftShadow
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Hammerhead
+	Buildable:
+		Description: Chopper with Chaingus.\n\nGood vs: Ground\n\nSpecial:\n- Can transport up to 5 soldiers\n- Soldiers can attack out of Hammerhead
+		Queue: Air
+		BuildPaletteOrder: 2
+		Prerequisites: ~gahpad
+	Selectable:
+		Bounds: 40,30
+	Aircraft:
+		LandWhenIdle: True
+		RepulsionSpeed: 40
+		AltitudeVelocity: 350
+		MaximumPitch: 350
+		IdealSeparation: 3c0
+		TurnSpeed: 6
+		Speed: 170
+		Repulsable: true
+		MoveIntoShroud: true
+		CruiseAltitude: 3c768
+		InitialFacing: 0
+		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 16000
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+		EjectOnDeath: False
+	Armament@1:
+		Weapon: HammerheadGun
+		LocalOffset: 300,350,-100
+	Armament@2:
+		Weapon: HammerheadGun
+		LocalOffset: 150,350,-100
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AttackTurreted:
+	Turreted:
+	AutoTarget:
+	-AmmoPool:
+	-ReloadAmmoPool@AIReload:
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: WASP.Husk
+
 ORCAB:
 	Inherits: ^Plane
 	Inherits@1: ^Ra2vxl
 	Inherits@2: ^AutoTargetAllAssaultMove
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1800
+		Cost: 1500
 	Tooltip:
 		Name: Falcon
 	Buildable:
@@ -258,7 +320,7 @@ APACHE:
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Apache
 	Buildable:
@@ -300,13 +362,16 @@ APACHE:
 		Actor: APACHE.Husk
 	-AmmoPool:
 	-ReloadAmmoPool@AIReload:
+	AttackTurreted:
+	Turreted:
+	AutoTarget:
 
 SCRIN:
 	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1500
+		Cost: 1800
 	Tooltip:
 		Name: Banshee Fighter
 	Buildable:
@@ -321,7 +386,7 @@ SCRIN:
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 6
-		Speed: 190
+		Speed: 200
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -360,7 +425,7 @@ STORMRIDER:
 	Inherits@3: ^11CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1400
+		Cost: 1500
 	Tooltip:
 		Name: Storm Rider
 	Buildable:
@@ -376,7 +441,7 @@ STORMRIDER:
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 8
-		Speed: 170
+		Speed: 185
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -418,7 +483,7 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 135
+		Speed: 170
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Water
@@ -466,14 +531,14 @@ drache:
 		Bounds: 100, 85, 0, -24
 		Priority: 4
 	Health:
-		HP: 100000
+		HP: 60000
 	Voiced:
 		VoiceSet: Deva
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
 		TurnSpeed: 3
-		Speed: 35
+		Speed: 40
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	MustBeDestroyed:
@@ -511,7 +576,7 @@ SCRDESTROYER:
 	Inherits@5: ^7CellVision
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1700
+		Cost: 2400
 	Tooltip:
 		Name: Destroyer
 	Buildable:
@@ -525,7 +590,7 @@ SCRDESTROYER:
 		Bounds: 85,50,0,-12
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 60
+		Speed: 70
 		Repulsable: true
 		MoveIntoShroud: true
 	Health:
@@ -536,6 +601,8 @@ SCRDESTROYER:
 	AttackHeli:
 		FacingTolerance: 20
 		Voice: Attack
+	AttackTurreted:
+	Turreted:
 	AutoTarget:
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -558,7 +625,7 @@ SCRCARRIER:
 	Inherits@4: ^BasicStealthDetection
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 2500
+		Cost: 3000
 	Tooltip:
 		Name: Assault Carrier
 	Buildable:
@@ -572,7 +639,7 @@ SCRCARRIER:
 		Bounds: 90,55
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 70
+		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
 	Health:
@@ -680,7 +747,7 @@ SCRINCOUNCIL:
 		HP: 50000
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 55
+		Speed: 30
 		MoveIntoShroud: true
 	WithSpriteBody:
 		Sequence: dummy

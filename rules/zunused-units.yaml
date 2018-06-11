@@ -1,6 +1,36 @@
 #################################################
 # UNUSED Infantry
 #################################################
+MUTMCV:
+	Inherits: MCV
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 120
+		Prerequisites: ~gaweap
+	Mobile:
+		Speed: 70
+        TurnSpeed: 8
+	Tooltip:
+		Name: Surveyor
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: mutyard
+		Offset: -1,-1
+		Facing: 160
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Voiced:
+		VoiceSet: MutantMCV
+		Volume: 0.8
 
 MEDIC:
 	Inherits: ^Soldier
@@ -1140,6 +1170,86 @@ STALKER:
 # UNUSED VEHICLES
 #################################################
 
+HMEC:
+	Inherits: ^VoxelTank
+	Inherits@1: ^10CellVision
+	Inherits@1: ^PermanentSelfHeal
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Mammoth Mk. II
+#	Buildable:
+#		Queue: Vehicle
+#		BuildPaletteOrder: 9
+#		Prerequisites: ~gaweap, gtdrop
+#		BuildAtProductionType: Mammoth
+#		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.\n- Can crush vehicles and cyborgs.\n- It is deployed via dropship at the Dropship Bay.
+#		BuildLimit: 1
+	Mobile:
+		TurnSpeed: 3
+		Speed: 40
+		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
+    -Crushable:
+	-RejectsOrders@berserk:
+	Health:
+		HP: 200000
+	AnnounceOnSeen:
+		Notification: MammothDetected
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: empdisable
+		Turrets: primary, secondary, third
+		Armaments: primary, secondary, third
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
+	AutoTarget:
+	Armament:
+		Weapon: MKIITusk
+		LocalOffset: 0,0,2800
+		Turret: secondary
+		Name: secondary
+		PauseOnCondition: empdisable
+	Armament@1:
+		Weapon: MKIITusk
+		LocalOffset: 0,0,2800
+		Turret: third
+		Name: third
+		FireDelay: 5
+		PauseOnCondition: empdisable
+	Armament@2:
+		Weapon: MechRailgun2
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
+		MuzzleSequence: muzzle
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	-WithVoxelBody:
+	Turreted:
+		Offset: -500,0,0
+		TurnSpeed: 3
+	Turreted@2:
+		Offset: 600,300,-400
+		TurnSpeed: 6
+		Turret: secondary
+	Turreted@3:
+		Offset: 600,-300,-400
+		TurnSpeed: 6
+		Turret: third
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithSpriteTurret@2
+		Sequence: turret2
+		Turret: secondary
+	WithSpriteTurret@3
+		Sequence: turret2
+		Turret: third
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 40, 40, 0, -8
+
 LPST:
 	Inherits: ^VoxelVehicle
 	-AppearsOnRadar:
@@ -1686,34 +1796,6 @@ HVRTRUK3:
 		ReferencePoint: Bottom, Left
 		Palette: mouse
 		ShowToEnemies: true
-
-MUTMCV:
-	Inherits: MCV
-	Inherits@1: ^MutRender
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 110
-		Prerequisites: ~muweap, gadept
-	Tooltip:
-		Name: Mutant MCV
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-		-Image:
-	WithFacingSpriteBody:
-	WithMoveAnimation:
-		MoveSequence: run
-	Transforms:
-		IntoActor: mutyard
-		Offset: -1,-1
-		Facing: 160
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
-	Voiced:
-		VoiceSet: MutantMCV
-		Volume: 0.8
 
 CABMCV:
 	Inherits: MCV
@@ -2518,67 +2600,6 @@ CABDRONEJET:
 	RejectsOrders:
 	-SelectionDecorations:
     
-WASP:
-	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^BasicStealthDetection
-	Inherits@4: ^11CellVision
-	Inherits@5: ^CabRender
-	Inherits@Shadow: ^AircraftShadow
-	Valued:
-		Cost: 1100
-	Tooltip:
-		Name: Wasp
-	Buildable:
-		Description: Aerial drone armed with dual laser cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- detects stealth
-		Queue: Air
-		BuildPaletteOrder: 1
-		Prerequisites: ~cabair
-	Selectable:
-		Bounds: 40,30
-	Aircraft:
-		TurnSpeed: 6
-		Speed: 125
-		Repulsable: true
-		MoveIntoShroud: true
-	Health:
-		HP: 12000
-	Voiced:
-		VoiceSet: Limpet
-	Armament@1:
-		Weapon: WaspLasor
-		LocalOffset: 250,350,-100
-	Armament@2:
-		Weapon: WaspLasor
-		AmmoPoolName: Rocket
-		LocalOffset: 250,-350,-100
-	Armament@3:
-		Weapon: WaspLasorAA
-		AmmoPoolName: Rocket
-		LocalOffset: 250,-350,-100
-	Armament@4:
-		Weapon: WaspLasorAA
-		AmmoPoolName: Rocket
-		LocalOffset: 250, 350,-100
-	Armament@TheRealThing:
-		Weapon: WaspBullet
-	Armament@TheRealThingAA:
-		Weapon: WaspBulletAA
-	AttackHeli:
-		FacingTolerance: 20
-		Voice: Attack
-	AutoTarget:
-	-AmmoPool:
-	-ReloadAmmoPool@AIReload:
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 32
-	SpawnActorOnDeath:
-		Actor: WASP.Husk
-
 FIREFLY:
 	Inherits: ^Helicopter
 	Inherits@5: ^CabRender

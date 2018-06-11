@@ -1,7 +1,7 @@
 Metadata:
 	Title: Shattered Wars
 	Description: The sequel of the Second Tiberium War in Shattered Paradise.\nModern gameplay with an competitive environment awaits you.
-	Version: {SWBuild 20180601}
+	Version: {SWBuild 20180610}
 	Author: Creator ZxGanon based on Nolt´s Mod Shattered Paradise.
 
 PackageFormats: Mix
@@ -14,6 +14,7 @@ Packages:
 	./mods/as: as
 	$sw: sw
 	$ts: ts
+    $cnc: cnc
 # Tiberian Sun
 	~scores.mix
 	~sidenc01.mix
@@ -174,7 +175,7 @@ MapGrid:
 	DefaultSubCell: 2
 
 Cursors:
-	ts|cursors.yaml
+	sw|cursors.yaml
 
 Chrome:
 	sw|chrome.yaml
@@ -185,55 +186,48 @@ Assemblies:
 	as|OpenRA.Mods.AS.dll
 
 ChromeLayout:
-	common|chrome/ingame.yaml
-	common|chrome/ingame-chat.yaml
-	common|chrome/ingame-fmvplayer.yaml
-	common|chrome/ingame-menu.yaml
-	ts|chrome/ingame-info.yaml
-	common|chrome/ingame-infoscripterror.yaml
-	common|chrome/ingame-infobriefing.yaml
-	common|chrome/ingame-infoobjectives.yaml
-	common|chrome/ingame-infostats.yaml
-	sw|chrome/ingame-observer.yaml
-	ts|chrome/ingame-observerstats.yaml
-	sw|chrome/ingame-player.yaml #The only file of chromes that is on SP
-	common|chrome/ingame-perf.yaml
-	ts|chrome/ingame-debug.yaml
-	common|chrome/ingame-infochat.yaml
-	common|chrome/mainmenu.yaml
+	cnc|chrome/mainmenu.yaml
+	cnc|chrome/multiplayer-browser.yaml
+	cnc|chrome/multiplayer-browserpanels.yaml
+	cnc|chrome/multiplayer-createserver.yaml
+	cnc|chrome/multiplayer-directconnect.yaml
+	cnc|chrome/lobby.yaml
+	cnc|chrome/lobby-mappreview.yaml
+	cnc|chrome/lobby-players.yaml
+	cnc|chrome/lobby-options.yaml
+	cnc|chrome/lobby-music.yaml
+	cnc|chrome/lobby-servers.yaml
+	cnc|chrome/lobby-kickdialogs.yaml
+	cnc|chrome/connection.yaml
+	cnc|chrome/color-picker.yaml
+	cnc|chrome/mapchooser.yaml
+	cnc|chrome/replaybrowser.yaml
+	cnc|chrome/ingame.yaml
+	cnc|chrome/ingame-chat.yaml
+	cnc|chrome/ingame-menu.yaml
+	cnc|chrome/ingame-debug.yaml
+	cnc|chrome/ingame-infochat.yaml
+	cnc|chrome/ingame-info.yaml
+	cnc|chrome/ingame-infobriefing.yaml
+	cnc|chrome/ingame-infoscripterror.yaml
+	cnc|chrome/ingame-infoobjectives.yaml
+	cnc|chrome/ingame-infostats.yaml
+	cnc|chrome/ingame-observerstats.yaml
+	cnc|chrome/music.yaml
+	cnc|chrome/settings.yaml
+	cnc|chrome/credits.yaml
+	cnc|chrome/dialogs.yaml
+	cnc|chrome/tooltips.yaml
+	cnc|chrome/assetbrowser.yaml
+	cnc|chrome/missionbrowser.yaml
+	cnc|chrome/editor.yaml
 	sw|chrome/mainmenu-prerelease-notification.yaml
-	common|chrome/settings.yaml
-	common|chrome/credits.yaml
-	common|chrome/lobby.yaml
-	common|chrome/lobby-mappreview.yaml
-	common|chrome/lobby-players.yaml
-	common|chrome/lobby-options.yaml
-	common|chrome/lobby-music.yaml
-	common|chrome/lobby-servers.yaml
-	common|chrome/lobby-kickdialogs.yaml
-	ts|chrome/color-picker.yaml
-	common|chrome/map-chooser.yaml
-	common|chrome/multiplayer-browser.yaml
-	common|chrome/multiplayer-browserpanels.yaml
-	common|chrome/multiplayer-createserver.yaml
-	common|chrome/multiplayer-directconnect.yaml
-	common|chrome/connection.yaml
-	common|chrome/replaybrowser.yaml
-	ts|chrome/dropdowns.yaml
-	common|chrome/musicplayer.yaml
-	common|chrome/tooltips.yaml
-	common|chrome/assetbrowser.yaml
-	common|chrome/missionbrowser.yaml
-	common|chrome/confirmation-dialogs.yaml
-	common|chrome/editor.yaml
 
 Voices:
 	sw|audio/voices.yaml
 
 Notifications:
-	sw|audio/speech-generic.yaml
-	sw|audio/speech-singleplayer.yaml
-	sw|audio/sounds-generic.yaml
+	cnc|audio/notifications.yaml
 
 Music:
 	sw|audio/music.yaml
@@ -245,9 +239,10 @@ Hotkeys:
 	common|hotkeys/game.yaml
 	common|hotkeys/observer.yaml
 	common|hotkeys/production-common.yaml
+	common|hotkeys/production-peractor.yaml
 	common|hotkeys/supportpowers.yaml
 	common|hotkeys/viewport.yaml
-	ts|hotkeys.yaml
+	cnc|hotkeys.yaml
 
 LoadScreen: LogoStripeLoadScreen
 	Image: sw|uibits/loadscreen.png
@@ -261,7 +256,7 @@ ServerTraits:
 
 ChromeMetrics:
 	common|metrics.yaml
-	ts|metrics.yaml
+	cnc|metrics.yaml
 
 Fonts:
 	Regular:

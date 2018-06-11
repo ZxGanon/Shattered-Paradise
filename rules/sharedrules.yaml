@@ -62,11 +62,11 @@ MCV:
 		Priority: 5
 		DecorationBounds: 42,42
 	Health:
-		HP: 120000
+		HP: 60000
 	Armor:
 		Type: VehicleArmor
 	Mobile:
-		Speed: 45
+		Speed: 50
 		TurnSpeed: 5
 		Crushes: wall, crate, infantry
 	MustBeDestroyed:
@@ -256,22 +256,22 @@ GACNST:
 		Prerequisites: ~disabled
 	Production@Building:
 		Produces: Building
-	Production@Defense:
-		Produces: Defense
+	Production@Defence:
+		Produces: Defence
     ProductionQueue@Building:
         Type: Building
         Group: Building
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
-    ProductionQueue@Defense:
-        Type: Defense
-        Group: Defense
+    ProductionQueue@Defence:
+        Type: Defence
+        Group: Defence
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
 	Health:
 		HP: 240000
 	Production:
-		Produces: Building, Defense
+		Produces: Building, Defence
 	Valued:
 		Cost: 3500
 	Tooltip:
@@ -289,8 +289,8 @@ GACNST:
 		DeployCursor: undeploy
 	ProductionBar@Building:
 		ProductionType: Building
-	ProductionBar@Defense:
-		ProductionType: Defense
+	ProductionBar@Defence:
+		ProductionType: Defence
 	WithIdleOverlay@TOP:
 		Sequence: idle-top
 	WithIdleOverlay@SIDE:
@@ -381,12 +381,6 @@ GACNST:
         LowPowerSlowdown: 2
 	ProvidesPrerequisite:
 		Prerequisite: barracks
-	ProximityExternalCondition@hospitalheal:
-		Condition: hospitalheal
-		Range: 5c0
-	WithRangeCircle:
-		Range: 5c0
-		Type: hospitalheal
 	Health:
 		HP: 80000
 	Exit@1:
@@ -587,6 +581,13 @@ FLIPPEDPROC:
 		Factions: gdi, nod, cab, mut
 		Prerequisite: humanstuff
 		ResetOnOwnerChange: True
+	ProximityExternalCondition@MachineShopHeal:
+		Condition: MachineShopHeal
+		Range: 5c0
+	WithRangeCircle:
+		Range: 5c0
+		Type: MachineShopHeal
+        UsePlayerColor: true
 
 ^Helipad:
 	Inherits: ^Building
@@ -600,7 +601,7 @@ FLIPPEDPROC:
 		Produces: Air
     ProductionQueue:
         Type: Air
-        Group: Air
+        Group: Aircraft
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
 	RallyPoint:
@@ -787,7 +788,7 @@ TECH:
 SHAWALL:
 	Inherits: ^Wall
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 1
 		Prerequisites: ~sharedwall
 		Description: Stops infantry, Vehicles and blocks enemy fire.
@@ -817,7 +818,7 @@ NAPOST:
 	Inherits: ^Defence
 	Inherits@IDISABLED: ^DisableOnLowPowerOrPowerDown
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 2
 		Prerequisites: napowr, ~structures.nod
 		Description: Stops infantry and blocks enemy fire.\n- Can NOT be crushed by tanks.\n- Requires power to operate.
@@ -924,7 +925,7 @@ SCRWALL:
 	Inherits: ^Wall
 	Inherits@2: ^ScrinRender
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 4
 		Description: Stops infantry, Vehicles and blocks enemy fire.
 		Prerequisites: ~structures.scr
@@ -1111,7 +1112,7 @@ trnsport.nod:
 GATE_A:
 	Inherits: ^Gate_A
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 100
 		Prerequisites: ~nodgate
 		Description: Automated barrier that opens for allied units.
@@ -1132,7 +1133,7 @@ GATE_A:
 GATE_B:
 	Inherits: ^Gate_B
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 100
 		Prerequisites: ~nodgate
 		Description: Automated barrier that opens for allied units.
@@ -1155,7 +1156,7 @@ SCRGATE_A:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 100
 		Prerequisites: ~structures.scr
 		Description: Automated barrier that opens for allied units.
@@ -1170,7 +1171,7 @@ SCRGATE_B:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 100
 		Prerequisites: ~structures.scr
 		Description: Automated barrier that opens for allied units.
