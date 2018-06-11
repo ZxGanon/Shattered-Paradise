@@ -46,7 +46,12 @@ GDIE1:
 	Voiced:
 		VoiceSet: Marine
 	Mobile:
-		Speed: 70
+		Speed: 65
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
 	Armament@1:
 		Weapon: MarineRifle
 		PauseOnCondition: WebDisable
@@ -197,7 +202,12 @@ EAGLEGUARD:
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
-		Speed: 50
+		Speed: 60
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 70
+			BlueTiberium: 70
+				PathingCost: 70
 	Health:
 		HP: 30000
 	-DamagedByTerrain:
@@ -241,7 +251,7 @@ MARAUDER:
 	Health:
 		HP: 40000
 	Mobile:
-		Speed: 75
+		Speed: 70
 		TerrainSpeeds:
 			Tiberium: 70
 				PathingCost: 300
@@ -289,6 +299,11 @@ ALTNODE1:
 		HP: 10000
 	Mobile:
 		Speed: 60
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
 	-TakeCover:
 	Armament:
 		Weapon: MilitantRifle
@@ -390,7 +405,12 @@ MEDIC:
 	Health:
 		HP: 8000
 	Mobile:
-		Speed: 75
+		Speed: 80
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
 	Voiced:
 		VoiceSet: Medic
 	Passenger:
@@ -426,6 +446,11 @@ NCONF:
 		HP: 12000
 	Mobile:
 		Speed: 60
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
 	Armament@1:
 		Weapon: TemplarLasor
 		LocalOffset: 400,0,778
@@ -473,7 +498,7 @@ CYC2:
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	Mobile:
-		Speed: 65
+		Speed: 55
 	Health:
 		HP: 70000
 	Targetable@MindControlImmunity:
@@ -552,7 +577,7 @@ LEGIO:
 	Health:
 		HP: 4000
 	Mobile:
-		Speed: 85
+		Speed: 75
 	Passenger:
 		PipType: Blue
 	-SpawnActorOnDeath@FLAMEGUY:
@@ -666,7 +691,7 @@ COLOSSI:
 	Health:
 		HP: 30000
 	Mobile: 
-		Speed: 75
+		Speed: 100
 	-SpawnActorOnDeath@FLAMEGUY:
 	AttackFrontal:
 		Voice: Attack

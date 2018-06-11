@@ -121,7 +121,7 @@ HARV:
 	WithMoveAnimation:
 	WithDockingAnimation:
 	Mobile:
-		Speed: 60
+		Speed: 75
 		Crushes: wall, crate, infantry, RazorShark
 		TerrainSpeeds:
 			Ice: 100
@@ -171,7 +171,7 @@ harv.gdi:
 		Image: gdiharv
 		-FactionImages:
 	Health:
-		HP: 70000
+		HP: 60000
 
 harv.nod:
 	Inherits: HARV

@@ -459,10 +459,7 @@ BIKE:
 		LocalOffset: 100,150,384, 100,-150,384
 		PauseOnCondition: empdisable
 	Turreted:
-	AutoTarget:
 	AttackTurreted:
-		Voice: Attack
-		PauseOnCondition: empdisable
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
@@ -817,7 +814,7 @@ SCRRECHARGER:
 	WithMuzzleOverlay:
 	AttackTurreted:
 		PauseOnCondition: empdisable
-	WithSpriteTurret:
+	AttackTurreted:
 	Turreted:
 	AutoTarget:
 	QuantizeFacingsFromSequence:
@@ -856,6 +853,7 @@ SCRMBT:
 		PauseOnCondition: empdisable
 	AttackTurreted:
 		PauseOnCondition: empdisable
+	WithSpriteTurret:
 	Turreted:
 	AutoTarget:
 	RenderSprites:

@@ -513,7 +513,7 @@ StealthRocket:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 125
 	Range: 7c0
-	Burst: 6
+	Burst: 10
 	Report: misl1.aud
 	ValidTargets: Ground, Water
 	Projectile: Missile

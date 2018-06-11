@@ -1,36 +1,6 @@
 #################################################
 # UNUSED Infantry
 #################################################
-MUTMCV:
-	Inherits: MCV
-	Inherits@1: ^MutRender
-	Buildable:
-		Queue: Vehicle
-		BuildAtProductionType: Tank
-		BuildPaletteOrder: 120
-		Prerequisites: ~gaweap
-	Mobile:
-		Speed: 70
-        TurnSpeed: 8
-	Tooltip:
-		Name: Surveyor
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-		-Image:
-	WithFacingSpriteBody:
-	WithMoveAnimation:
-		MoveSequence: run
-	Transforms:
-		IntoActor: mutyard
-		Offset: -1,-1
-		Facing: 160
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
-	Voiced:
-		VoiceSet: MutantMCV
-		Volume: 0.8
 
 MEDIC:
 	Inherits: ^Soldier
@@ -1169,6 +1139,33 @@ STALKER:
 #################################################
 # UNUSED VEHICLES
 #################################################
+MUTMCV:
+	Inherits: MCV
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Vehicle
+		BuildAtProductionType: Tank
+		BuildPaletteOrder: 110
+		Prerequisites: ~muweap, gadept
+	Tooltip:
+		Name: Mutant MCV
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: mutyard
+		Offset: -1,-1
+		Facing: 160
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Voiced:
+		VoiceSet: MutantMCV
+		Volume: 0.8
 
 HMEC:
 	Inherits: ^VoxelTank
