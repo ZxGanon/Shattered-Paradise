@@ -14,7 +14,7 @@ GAPOWR:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
-		HP: 75000
+		HP: 50000
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	WithIdleOverlay@PLUG:
@@ -227,6 +227,13 @@ GTDROP:
 		Sequence: idle-lights
 	Power:
 		Amount: -100
+	ProximityExternalCondition@MachineShopHeal:
+		Condition: MachineShopHeal
+		Range: 5c0
+	WithRangeCircle:
+		Range: 5c0
+		Type: MachineShopHeal
+        UsePlayerColor: true
 	ProvidesPrerequisite@buildingname:
 	DetonateWeaponPower@pods:
 		Icon: droppods
@@ -251,7 +258,7 @@ GTDROP:
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
 	Health:
-		HP: 300000
+		HP: 100000
 	RequiresBuildableArea:
 		AreaTypes: building
 	RallyPoint:
@@ -306,7 +313,7 @@ NAPOWR:
 		Bounds: 88, 48, 2, -6
 		DecorationBounds: 88, 80, 2, -12
 	Health:
-		HP: 75000
+		HP: 50000
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Power:
@@ -564,7 +571,7 @@ NAMISL:
 		PauseOnCondition: empdisable || disabled
 	SelectionDecorations:
 	Health:
-		HP: 300000
+		HP: 100000
 	WithDecoration@POWERDOWN:
 		Image: poweroff
 		Sequence: offline
@@ -606,7 +613,7 @@ drached:
 		BuildSounds: facbld1.aud
 		Dimensions: 3,3
 	Health:
-		HP: 240000
+		HP: 200000
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 1000
@@ -710,7 +717,7 @@ SCRPOWR:
 		Footprint: xx xx xx
 		Dimensions: 3,2
 	Health:
-		HP: 100000
+		HP: 50000
 	Selectable:
 		Bounds: 90, 48, 0, -6
 		DecorationBounds: 90, 84, 0, -12
@@ -765,7 +772,7 @@ SCRPROC:
 		IconPalette: UnittemIconScrin
 	StoresResources:
 		PipCount: 17
-		Capacity: 4000
+		Capacity: 8000
 	FreeActor:
 		Actor: SCRHARV
 	ProvidesPrerequisite@buildingname:
@@ -802,7 +809,7 @@ SCRPROC2:
 		Actor: SCRHARV
 	StoresResources:
 		PipCount: 17
-		Capacity: 4000
+		Capacity: 8000
 
 SCRWEAP:
 	Inherits: ^Factory
@@ -981,6 +988,6 @@ SCRADVPOWR:
 		SourceTileSequence: build-valid-
 		DisplayTimerStances: Ally, Neutral, Enemy
 	Health:
-		HP: 300000
+		HP: 100000
 	RequiresBuildableArea:
 		AreaTypes: building

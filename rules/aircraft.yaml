@@ -92,7 +92,7 @@ ORCA:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
 	Health:
-		HP: 12000
+		HP: 18000
 	Armament:
 		Weapon: FighterHellfire
 		PauseOnCondition: !ammo
@@ -148,7 +148,7 @@ WASP:
 		InitialFacing: 0
 		LandableTerrainTypes: Clear, Ice, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
-		HP: 16000
+		HP: 25000
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -185,7 +185,7 @@ ORCAB:
 	Inherits@2: ^AutoTargetAllAssaultMove
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Tooltip:
 		Name: Falcon
 	Buildable:
@@ -202,7 +202,7 @@ ORCAB:
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
-		HP: 13000
+		HP: 20000
 	Armament:
 		Weapon: FalconPunch
 		PauseOnCondition: !ammo
@@ -335,7 +335,7 @@ APACHE:
 		Speed: 190
 		MoveIntoShroud: true
 	Health:
-		HP: 7000
+		HP: 18000
 	Armament:
 		Weapon: HarpyClaw
 	Armament@432:
@@ -390,7 +390,7 @@ SCRIN:
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
-		HP: 20000
+		HP: 35000
 	Armament@1:
 		Weapon: Proton
 		PauseOnCondition: !ammo
@@ -445,7 +445,7 @@ STORMRIDER:
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
-		HP: 22000
+		HP: 28000
 	Armament:
 		Weapon: StormRiderBlast
 	Armament@AA:
@@ -594,7 +594,7 @@ SCRDESTROYER:
 		Repulsable: true
 		MoveIntoShroud: true
 	Health:
-		HP: 30000
+		HP: 62500
 	Armament:
 		Weapon: DestroyerCannon
 		LocalOffset: 300,0,0
@@ -632,7 +632,7 @@ SCRCARRIER:
 		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies.\n- Can attack Air.\n- Detects cloaked units.\n- Can absorb essence from killed enemies to heal.
 		Queue: Air
 		BuildPaletteOrder: 11
-		Prerequisites: ~scrair, scrtech
+		Prerequisites: ~scrair, scradvpowr
 	Voiced:
 		VoiceSet: Deva
 	Selectable:
@@ -643,7 +643,7 @@ SCRCARRIER:
 		Repulsable: true
 		MoveIntoShroud: true
 	Health:
-		HP: 60000
+		HP: 100000
 	Targetable@GROUND:
 		TargetTypes: Vehicle, MindControlInmune, Mothership
 	Targetable@AIRBORNE:
@@ -651,7 +651,7 @@ SCRCARRIER:
 	Armament:
 		Weapon: FighterSpawn
 	CarrierMaster:
-		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
+		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
 		RespawnTicks: 700
 		ReamTicks: 10
 		InstaRepair: true
@@ -727,6 +727,7 @@ STORMRIDERSPAWN:
 SCRINCOUNCIL:
 	Inherits: ^Helicopter
 	Inherits@2: ^ScrinRender
+	Inherits@3: ^AutoTargetAllAssaultMove
 	Inherits@Shadow: ^AircraftShadow
 	Valued:
 		Cost: 4000
@@ -737,24 +738,30 @@ SCRINCOUNCIL:
 		Queue: Air
 		BuildPaletteOrder: 12
 		Prerequisites: ~scrair, scradvpowr
+		BuildLimit: 1
 	Selectable:
 		Bounds: 80,70,0,-12
 	Voiced:
 		VoiceSet: Deva
-	Selectable:
-		Priority: 6
 	Health:
-		HP: 50000
+		HP: 300000
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 30
 		MoveIntoShroud: true
+	AttackOmni:
+	GrantConditionOnAttack:
+		Condition: LaserCharge
+		MaximumInstances: 7
+		RevokeDelay: 70
+	Armament@charge:
+		Weapon: MothershipLazorCharge
+    ExplodeWeapon:
+        Weapon: AlienScorch
+		RequiresCondition: LaserCharge > 6
+	AutoTarget:
 	WithSpriteBody:
 		Sequence: dummy
-	Production:
-		Produces: Vehicle
-	Exit@1:
-		SpawnOffset: 0,0,-50
 	RenderSprites:
 	Hovers:
 	WithInfantryBody:

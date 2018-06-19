@@ -68,7 +68,7 @@ MUCANNON:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 70000
+		HP: 50000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -95,7 +95,7 @@ MUFLAK:
 	Power:
 		Amount: -20
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Flak Station
 	Buildable:
@@ -108,7 +108,7 @@ MUFLAK:
 		Bounds: 40, 36, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 70000
+		HP: 60000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -234,7 +234,7 @@ NALASR:
 		Bounds: 40, 30, -8, -6
 		DecorationBounds: 40, 36, -8, -8
 	Health:
-		HP: 70000
+		HP: 50000
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 300
@@ -255,7 +255,7 @@ NALASR:
 NASAM:
 	Inherits: ^AntiAir
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: S.A.M. Site
 	Buildable:
@@ -268,7 +268,7 @@ NASAM:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 70000
+		HP: 60000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -309,7 +309,7 @@ NAOBEL:
         Bounds: 88, 130, 0, -36
         DecorationBounds: 88, 130, 0, -36
     Health:
-        HP: 100000
+        HP: 75000
     WithMuzzleOverlay:
     Armament:
         Weapon: ObeliskLaserFire
@@ -411,7 +411,7 @@ SCRDRONE:
 		Bounds: 88, 42, 0, -6
 		DecorationBounds: 88, 72, 0, -12
 	Health:
-		HP: 70000
+		HP: 50000
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
 	Armament:
@@ -429,9 +429,9 @@ SCRTRACTOR:
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
-		Name: Tractor Beam
+		Name: Glaive Turret
 	Buildable:
 		Description: Scrin Anti-Air base defense\n\nGood vs Aircraft\n\nSpecial:\n- Can attack air.\n- Freezes the targetted aircraft momentarily.\n- Requires power to operate.
 		Queue: Defence
@@ -442,7 +442,7 @@ SCRTRACTOR:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 70000
+		HP: 60000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -455,26 +455,8 @@ SCRTRACTOR:
 	WithSpriteTurret:
 		Recoils: yes
 	Armament:
-		Weapon: TractorBeam
+		Weapon: GlaiveTurretAA
 		LocalOffset: 512,0,512
-	Armament@2:
-		Weapon: TractorBeam2
-		LocalOffset: 512,600,1948
-	Armament@3:
-		Weapon: TractorBeam2
-		LocalOffset: 512,-590,1948
-	Armament@4:
-		Weapon: TractorBeam2
-		LocalOffset: 300,200,2400
-	Armament@5:
-		Weapon: TractorBeam2
-		LocalOffset: 300,-190,2400
-	Armament@6:
-		Weapon: TractorBeam2
-		LocalOffset: 512,200,1500
-	Armament@7:
-		Weapon: TractorBeam2
-		LocalOffset: 512,-190,1500
 	Power:
 		Amount: -20
 	SelectionDecorations:
@@ -498,11 +480,13 @@ SCREXTRACTOR:
 	Building:
 		Footprint: x
 		Dimensions: 1,1
-	Selectable:
+	AttackOmni:
+		PauseOnCondition: empdisable || disabled
+    Selectable:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 100000
+		HP: 75000
 	Power:
 		Amount: -50
 	Armament@Primary:
@@ -586,7 +570,7 @@ GAPLUG:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 	Health:
-		HP: 300000
+		HP: 200000
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -607,7 +591,7 @@ NASTLH:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 60000
+		HP: 30000
 	Armor:
 		Type: BuildingArmor
 	WithIdleOverlay@pulse:
@@ -694,7 +678,7 @@ NATMPL:
 		CircleSequence: circles
 		PauseOnCondition: empdisable || disabled
 	Health:
-		HP: 300000
+		HP: 200000
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 3
@@ -749,6 +733,6 @@ SCRSW1:
 		Factions: gdi, mut, nod, cab, scr
 		ResetOnOwnerChange: true
 	Health:
-		HP: 300000
+		HP: 200000
 	RequiresBuildableArea:
 		AreaTypes: building

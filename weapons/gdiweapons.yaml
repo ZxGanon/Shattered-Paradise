@@ -1,3 +1,63 @@
+BHRifle:
+	ReloadDelay: 100
+	Range: 10c0
+	Report: ramjetfire.wav
+	ValidTargets: Infantry, LandedAircraft, Water, Vehicle
+	ReloadDelay: 120
+	Projectile: BulletAS
+		Speed: 100c0
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Building
+		Damage: 7500
+		ValidTargets: Infantry, LandedAircraft, Water, Vehicle
+		Versus:
+			InfantryArmor: 400
+			BuildingArmor: 1
+			DefenseArmor: 1
+			VehicleArmor: 1
+			AircraftArmor: 50
+			ConcreteArmor: 1
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: hallugren
+		ImpactSounds: expnew12.aud
+		ExplosionPalette: apolra2yalpha
+		InvalidImpactTypes: Water, Air, AirHit
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		ExplosionPalette: ra
+		ValidImpactTypes: Water
+
+COMRifle:
+	ReloadDelay: 20
+	Range: 4c512
+	Report: ramjetfire.wav
+	ValidTargets: Infantry, LandedAircraft, Water, Vehicle
+	ReloadDelay: 25
+	Projectile: BulletAS
+		Speed: 100c0
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Building
+		Damage: 1500
+		ValidTargets: Infantry, LandedAircraft, Water, Vehicle
+		Versus:
+			InfantryArmor: 400
+			BuildingArmor: 1
+			DefenseArmor: 1
+			VehicleArmor: 1
+			AircraftArmor: 50
+			ConcreteArmor: 1
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: hallugren
+		ImpactSounds: expnew12.aud
+		ExplosionPalette: apolra2yalpha
+		InvalidImpactTypes: Water, Air, AirHit
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		ExplosionPalette: ra
+		ValidImpactTypes: Water
+
 HammerheadGun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -55,7 +115,7 @@ SonicDefenceHit:
 		# Spread: 0c190
 		Damage: 30000
 		ValidStances: Enemy, Neutral
-		DamageTypes: Prone50Percent, TriggerProne
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
 		Explosions: lurkertentacle
@@ -404,7 +464,7 @@ SonicZap:
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 80
 	Range: 6c0
-	Report: 120mmf.aud
+	Report: tankmediumfire.wav
 	Burst: 2
 	BurstDelays: 8
 	Projectile: BulletAS
@@ -436,7 +496,7 @@ MammothTusk:
 		MaximumLaunchSpeed: 213
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 4500
+		Damage: 2000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
 		Versus:
 		DamageTypes: Explosion
@@ -526,7 +586,7 @@ FighterHellfire:
 	Range: 6c0
 	MinRange: 0c100
 	Report: orcamis1.aud
-	Burst: 2
+	Burst: 1
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Projectile: Missile
 		Arm: 2
@@ -536,18 +596,18 @@ FighterHellfire:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 7500
+		Damage: 7000
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 FighterHellfireAA:
 	Inherits: FighterHellfire
 	ValidTargets: Air
-	Burst: 2
+	Burst: 1
 	BurstDelays: 3
 	ReloadDelay: 25
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 3000
 		ValidTargets: Air
 
 # OBBomb:

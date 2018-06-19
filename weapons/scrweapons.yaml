@@ -1,16 +1,48 @@
+AlienScorch:
+	ReloadDelay: 350
+	Range: 1c0
+	MinRange: 0c128
+	Projectile: InstantExplode
+	ValidTargets: Ground, Water, Air, IonSpawner
+	Warhead@1Eff_impact: CreateEffect
+		Explosions: ionscorch
+		ExplosionPalette: effectalpha
+		DamageTypes: EnergyDeath
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 5c0
+		Damage: 500000
+		InvalidTargets: IonBeam
+		DamageTypes: SmallExplosionDeath
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			DefenseArmor: 100
+			ConcreteArmor: 100
+
+MothershipLazorCharge:
+	ValidTargets: Ground, Water
+	ReloadDelay: 50
+	Range: 1c0
+	MinRange: 0c128
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water
+
 StormTowerHit:
 	Inherits: ^FullDamage
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 150
 	Range: 9c0
-	Burst: 3
+	Burst: 1
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Projectile: BulletAS
 		Speed: 4c6824
 		Blockable: False
 	Warhead@1Dam: SpreadDamage
 		Spread: 150
-		Damage: 7000
+		Damage: 21000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
@@ -24,29 +56,37 @@ StormTowerHit:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
         
 StormTowerHitAA:
-	Inherits: ^FullDamage
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 150
+	Inherits: StormTowerHit
 	Range: 10c0
 	ValidTargets: Air
-	Projectile: BulletAS
-		Speed: 4c6824
-		Blockable: False
 	InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Warhead@1Dam: SpreadDamage
-		Spread: 150
-		Damage: 7000
-		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
-		ImpactSounds: expnew09.aud
-	Warhead@4: LeaveSmudge
-		SmudgeType: SmallCrater
-	Warhead@op: FireShrapnel
-		Weapon: SmallDebris
-		Amount: 2
-		AllowDirectHit: false
-		ValidTargets: Air, AirHit
+        InvalidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
+        ValidTargets: Air, AirHit
+
+GlaiveTurretAA:
+	Inherits: ^FullDamage
+	Inherits@2: ^Scrin_Pulse
+	ReloadDelay: 40
+	Range: 10c0
+    Burst: 4
+    Burstdelays: 5
+    ValidTargets: Air
+	InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
+	Projectile: Missile
+		Speed: 300
+		RangeLimit: 14c0
+		Blockable: false
+		Shadow: true
+		Palette: apollightbluealpha
+		Image: glaive
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		ValidTargets: Air
+		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
+		DamageTypes: SmallExplosionDeath
+        
 
 SharkJump:
 	Inherits: ^RifleWarhead
@@ -303,7 +343,7 @@ FloatGlaive2:
 ScorpAcid:
 	Inherits: ^AcidWarhead
 	ReloadDelay: 0
-	Range: 5c0
+	Range: 6c0
 	Burst: 12
 	BurstDelays: 1
 	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
@@ -315,23 +355,41 @@ ScorpAcid:
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 975
+		Versus:
+			InfantryArmor: 160
+			BuildingArmor: 100
+            VehicleArmor: 25
+            DefenseArmor: 50
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
 		Spread: 250
 		Damage: 975
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
-		Versus:
-			InfantryArmor: 160
-			BuildingArmor: 100
-            VehicleArmor: 25
-            DefenseArmor: 50
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
+
+AcidHeal:
+	ReloadDelay: 0
+	Range: 6c0
+	Burst: 12
+	BurstDelays: 1
+	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
+	ValidTargets: Infantry, Vehicle
+	Projectile: BulletAS
+		Speed: 200
+		Image: acidall32
+		Palette: apolgreenalpha
+	BurstDelays: 3
+	Warhead@1Dam: SpreadDamage
+		DebugOverlayColor: 00FF00
+		Spread: 350
+		Damage: -100
+		ValidTargets: Infantry, Vehicle
 
 MindController:
 	ReloadDelay: 300
@@ -612,7 +670,7 @@ WyvermBlast:
 		Palette: pips
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c180
-		Damage: 3000
+		Damage: 5000
 		Versus:
 			InfantryArmor: 10
 			VehicleArmor: 100

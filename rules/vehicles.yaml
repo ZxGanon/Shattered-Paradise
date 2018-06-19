@@ -19,7 +19,7 @@ HVR:
 		TurnSpeed: 9
 		TerrainSpeeds:
 	Health:
-		HP: 20000
+		HP: 14500
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
@@ -66,7 +66,7 @@ APC:
 		TerrainSpeeds:
 			Water: 60
 	Health:
-		HP: 35000
+		HP: 28000
 	Turreted:
 		TurnSpeed: 5
 		Offset: -200,0,0
@@ -132,10 +132,10 @@ MMCH:
 		Prerequisites: ~gaweap
 	Mobile:
 		TurnSpeed: 5
-		Speed: 70
+		Speed: 80
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 40000
+		HP: 34000
 	BodyOrientation:
 		QuantizedFacings: 32
 		CameraPitch: 250
@@ -179,11 +179,11 @@ MUTQUAD:
 		Description: Armored truck armed with a quad cannon.\n\nGood vs: Aircraft\n\nSpecial:\n- Can only attack Air\n- Hovers (it ignores terrain like Veins and Water)\n- Can crush infantry
 		Prerequisites: ~gaweap, garadr
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 12
 		Speed: 135
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 30000
+		HP: 34000
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -229,11 +229,11 @@ SONIC:
 		Prerequisites: ~gaweap, garadr
 	-RejectsOrders@berserk:
 	Mobile:
-		TurnSpeed: 4
-		Speed: 70
+		TurnSpeed: 10
+		Speed: 75
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 35000
+		HP: 34000
 	Armor@disruptor:
 		Type: Disruptor
 	BodyOrientation:
@@ -270,12 +270,12 @@ G4TNK:
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 55
+		Speed: 65
 		TurnSpeed: 4
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	Health:
-		HP: 70000
+		HP: 115000
 	Turreted:
 		TurnSpeed: 3
 		Offset: -200,0,0
@@ -326,7 +326,7 @@ JUG:
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	Health:
-		HP: 45000
+		HP: 50000
 	AttackFrontal:
 		Voice: Attack
 		Armaments: primary, secondary
@@ -393,14 +393,14 @@ BGGY:
 		BuildPaletteOrder: 10
 		Prerequisites: ~naweap
 	Mobile:
-		TurnSpeed: 16
+		TurnSpeed: 10
 		Speed: 140
 		Crushes: crate
 	Turreted:
 		Offset: -250,0,400
 		TurnSpeed: 8
 	Health:
-		HP: 15000
+		HP: 16000
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -438,13 +438,13 @@ BIKE:
 		Description: Fast moving anti armor bike.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealth detection.\n- Can attack air
 		Prerequisites: ~naweap
 	Mobile:
-		TurnSpeed: 8
+		TurnSpeed: 7
 		Speed: 170
 		Crushes: crate
 	Armor@Bike:
 		Type: Bike
 	Health:
-		HP: 12000
+		HP: 8000
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -482,11 +482,11 @@ LYNX:
 		Name: Scorpion Tank
 	Mobile:
 		TurnSpeed: 7
-		Speed: 85
+		Speed: 95
 		Crushes: wall, crate, infantry
 	WithFacingSpriteBody:
 	Health:
-		HP: 30000
+		HP: 24000
 	-RenderVoxels:
 	Voiced:
 		VoiceSet: Trike
@@ -527,10 +527,10 @@ SUBTANK:
 		Prerequisites: ~naweap, naradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 85
+		Speed: 90
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 30000
+		HP: 37000
 	Armament:
 		Weapon: DevilsFlame
 		LocalOffset: 0,400,0
@@ -560,7 +560,7 @@ ARMH:
 		Description: High tech laser artillery dealing damage over time.\n\nGood vs: Ground\n\nSpecial:\n- Can crush infantry.
 		Queue: Vehicle
 	Health:
-		HP: 16000
+		HP: 30000
 	Mobile:
 		Speed: 85
 		TurnSpeed: 5
@@ -597,11 +597,11 @@ STNK:
 		Description: High tech tank armed with rocket launchers and equipped with a personal mobile stealth generator.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can crush infantry.\n- Cloaking malfunctions when at red hp.
 		Queue: Vehicle
 	Mobile:
-		TurnSpeed: 7
+		TurnSpeed: 12
 		Speed: 130
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 20000
+		HP: 18750
 	WithFacingSpriteBody:
 	GrantCondition:
 		Condition: cloakgenerator
@@ -662,10 +662,10 @@ HOWTLIZER:
 		BuildPaletteOrder: 16
 		Prerequisites: ~naweap, natech
 	Health:
-		HP: 12000
+		HP: 24000
 	Mobile:
 		Speed: 110
-		TurnSpeed: 8
+		TurnSpeed: 10
 		Crushes: wall, crate, infantry
 	Cloak@cloakgenerator:
 		InitialDelay: 170
@@ -712,12 +712,12 @@ AVATAR:
 		Prerequisites:  ~naweap, natech
 	Mobile:
 		TurnSpeed: 5
-		Speed: 60
+		Speed: 70
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	-RejectsOrders@berserk:
 	Health:
-		HP: 70000
+		HP: 110000
 	Voiced:
 		VoiceSet: Avatar
 		Volume: 2
@@ -802,9 +802,9 @@ SCRRECHARGER:
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 100
+		Speed: 110
 	Health:
-		HP: 27500
+		HP: 21000
 	Armament:
 		Weapon: HunterGlaive
 		PauseOnCondition: empdisable
@@ -840,10 +840,10 @@ SCRMBT:
 	Tooltip:
 		Name: Hover Tank
 	Health:
-		HP: 30000
+		HP: 32000
 	Mobile:
     	TurnSpeed: 7
-		Speed: 65
+		Speed: 70
 		Crushes: wall, crate, infantry
 	Turreted:
 		TurnSpeed: 6
@@ -879,17 +879,23 @@ SCRSCORPION:
 		Prerequisites: ~scrweap, scrradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 80
+		Speed: 90
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 50000
+		HP: 30000
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
-	AutoTarget:
 	Armament@PRIMARY:
 		Weapon: ScorpAcid
 		LocalOffset: 100,0,200
+		PauseOnCondition: empdisable
+	AutoTarget:
+		ScanRadius: 8
+	Armament@Secondary:
+		TargetStances: Ally
+		Weapon: AcidHeal
+		ForceTargetStances: None
 		PauseOnCondition: empdisable
 	QuantizeFacingsFromSequence:
 		Sequence: stand
@@ -917,11 +923,11 @@ ANHLTRPD:
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 8
-		Speed: 70
+		Speed: 80
 		Crushes: wall, crate, infantry, Vehicle, HeavyInfantry
     -Crushable:
 	Health:
-		HP: 50000
+		HP: 75000
 	Carryable:
 		LocalOffset: 0,0,2500
 	Voiced:

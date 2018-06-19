@@ -263,13 +263,17 @@ GACNST:
         Group: Building
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
+		QueuedAudio: Building
+        ReadyAudio: ConstructionComplete
     ProductionQueue@Defence:
         Type: Defence
         Group: Defence
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
+		QueuedAudio: Building
+        ReadyAudio: ConstructionComplete
 	Health:
-		HP: 240000
+		HP: 200000
 	Production:
 		Produces: Building, Defence
 	Valued:
@@ -382,7 +386,7 @@ GACNST:
 	ProvidesPrerequisite:
 		Prerequisite: barracks
 	Health:
-		HP: 80000
+		HP: 35000
 	Exit@1:
 		SpawnOffset: -256,1024,0
 		ExitCell: 2,2
@@ -418,7 +422,7 @@ PROC:
 	BaseProvider:
 		Range: 6c0
 	Health:
-		HP: 140000
+		HP: 75000
 	Refinery:
 		DockAngle: 160
 		DockOffset: 2,1
@@ -484,7 +488,7 @@ FLIPPEDPROC:
 	BaseProvider:
 		Range: 6c0
 	Health:
-		HP: 140000
+		HP: 75000
 	Refinery:
 		DockAngle: 30
 		DockOffset: 1,1
@@ -544,13 +548,17 @@ FLIPPEDPROC:
         Group: Vehicle
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
+		QueuedAudio: Building
+	Production:
+		Produces: Vehicle, Tank
+	ProductionBar:
 	Selectable:
 		Bounds: 100, 70, -30, -24
 		DecorationBounds: 102, 70, -26, -24
 	BaseProvider:
 		Range: 6c0
 	Health:
-		HP: 208000
+		HP: 100000
 	RallyPoint:
 		Offset: 4,1
 		Palette: mouse
@@ -564,10 +572,7 @@ FLIPPEDPROC:
 		Name: Vehicle or Aircraft production
 	ProvidesPrerequisite@factoryhelipad:
 		Prerequisite: Vehicle or Aircraft production
-	Production:
-		Produces: Vehicle, Tank
 	PrimaryBuilding:
-	ProductionBar:
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@buildingname:
@@ -604,6 +609,7 @@ FLIPPEDPROC:
         Group: Aircraft
 		BuildDurationModifier: 41
         LowPowerSlowdown: 2
+		QueuedAudio: Building
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
@@ -618,7 +624,7 @@ FLIPPEDPROC:
 		Interval: 1
 	ProductionBar:
 	Health:
-		HP: 60000
+		HP: 50000
 	Power:
 		Amount: -20
 	WithSpriteBody:
@@ -635,7 +641,7 @@ FLIPPEDPROC:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
-		HP: 120000
+		HP: 75000
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
@@ -746,7 +752,7 @@ GADEPT:
 	BaseProvider:
 		Range: 6c0
 	Health:
-		HP: 150000
+		HP: 100000
 	WithSpriteBody:
 		PauseOnCondition: disabled
 	Power:

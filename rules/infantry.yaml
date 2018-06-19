@@ -42,7 +42,7 @@ GDIE1:
 	Tooltip:
 		Name: Marine
 	Health:
-		HP: 20000
+		HP: 17000
 	Voiced:
 		VoiceSet: Marine
 	Mobile:
@@ -249,7 +249,7 @@ MARAUDER:
 		TargetTypes: MCImmune
 	-RejectsOrders@berserk:
 	Health:
-		HP: 40000
+		HP: 45000
 	Mobile:
 		Speed: 70
 		TerrainSpeeds:
@@ -263,7 +263,7 @@ MARAUDER:
 		VoiceSet: Trike
 		Volume: 3
 	Armament@1:
-		Weapon: BHRifle
+		Weapon: COMRifle
 		PauseOnCondition: WebDisable
 		Name: OnFoot
 	Armament@2:

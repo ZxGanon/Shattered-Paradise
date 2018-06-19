@@ -1,7 +1,7 @@
 Metadata:
 	Title: Shattered Wars
 	Description: The sequel of the Second Tiberium War in Shattered Paradise.\nModern gameplay with an competitive environment awaits you.
-	Version: {SWBuild 20180610}
+	Version: {SWBuild 20180616}
 	Author: Creator ZxGanon based on Nolt´s Mod Shattered Paradise.
 
 PackageFormats: Mix
@@ -48,6 +48,7 @@ Packages:
 	~e01vox01.mix
 	~e01vox02.mix
 	~ecache01.mix
+	sw|audio/themes
 	sw|bits
 	sw|bits/neutral/anims/explosions
 	sw|bits/pal
@@ -202,7 +203,7 @@ ChromeLayout:
 	cnc|chrome/color-picker.yaml
 	cnc|chrome/mapchooser.yaml
 	cnc|chrome/replaybrowser.yaml
-	cnc|chrome/ingame.yaml
+	sw|chrome/ingame.yaml
 	cnc|chrome/ingame-chat.yaml
 	cnc|chrome/ingame-menu.yaml
 	cnc|chrome/ingame-debug.yaml
@@ -212,7 +213,7 @@ ChromeLayout:
 	cnc|chrome/ingame-infoscripterror.yaml
 	cnc|chrome/ingame-infoobjectives.yaml
 	cnc|chrome/ingame-infostats.yaml
-	cnc|chrome/ingame-observerstats.yaml
+	sw|chrome/ingame-observerstats.yaml
 	cnc|chrome/music.yaml
 	cnc|chrome/settings.yaml
 	cnc|chrome/credits.yaml
@@ -227,7 +228,9 @@ Voices:
 	sw|audio/voices.yaml
 
 Notifications:
-	cnc|audio/notifications.yaml
+	sw|audio/speech-generic.yaml
+	sw|audio/speech-singleplayer.yaml
+	sw|audio/sounds-generic.yaml
 
 Music:
 	sw|audio/music.yaml
@@ -246,7 +249,7 @@ Hotkeys:
 
 LoadScreen: LogoStripeLoadScreen
 	Image: sw|uibits/loadscreen.png
-	Text: Mutating mankind..., Kane has the Tacitus again..., Harvesting Ichor..., ZxGanon´s judgement...,Cleansing the earth for the Overlord..., Fucking Engine..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Competition is evolution...,Perfect is shit... 
+	Text: Mutating mankind..., Kane has the Tacitus again..., Harvesting Ichor..., ZxGanon´s judgement...,Cleansing the earth for the Overlord..., Fixing Bugs..., Unfixing bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Competition is evolution...,Perfect is shit... 
 
 ServerTraits:
 	LobbyCommands

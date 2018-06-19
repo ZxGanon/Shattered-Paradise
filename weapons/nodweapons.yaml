@@ -212,36 +212,6 @@ TemplarLasor:
 		Damage: 2400
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
-BHRifle:
-	ReloadDelay: 100
-	Range: 10c0
-	Report: ramjetfire.wav
-	ValidTargets: Infantry, LandedAircraft, Water, Vehicle
-	ReloadDelay: 70
-	Projectile: BulletAS
-		Speed: 100c0
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: Building
-		Damage: 7500
-		ValidTargets: Infantry, LandedAircraft, Water, Vehicle
-		Versus:
-			InfantryArmor: 400
-			BuildingArmor: 1
-			DefenseArmor: 1
-			VehicleArmor: 1
-			AircraftArmor: 50
-			ConcreteArmor: 1
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: hallugren
-		ImpactSounds: expnew12.aud
-		ExplosionPalette: apolra2yalpha
-		InvalidImpactTypes: Water, Air, AirHit
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piff
-		ExplosionPalette: ra
-		ValidImpactTypes: Water
-
 BuggyCannon:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -553,7 +523,7 @@ HarpyClaw:
 HarpyClawAA:
 	Inherits: ^FullDamage
 	Inherits@2: ^Piffs
-	ReloadDelay: 30
+	ReloadDelay: 20
 	ValidTargets: Air
 	Range: 6c0
 	MinRange: 0c100
@@ -561,7 +531,7 @@ HarpyClawAA:
 	Report: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 1000
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -597,41 +567,6 @@ ProtonAA:
 		Spread: 128
 		Damage: 1200
 		ValidTargets: Air
-
-CerberusLazorCharge:
-	ValidTargets: Ground, Water
-	ReloadDelay: 125
-	Range: 7c0
-	Burst: 7
-	MinRange: 3c0
-	BurstDelays: 10
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 1
-		ValidTargets: Ground, Water
-
-CerberusLazor:
-	Inherits: BCLazor
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 75
-	Range: 7c0
-	Burst: 3
-	Report: laserchaingunfire.wav
-	ValidTargets: Ground, Water
-	Projectile: LaserZap
-		BeamWidth: 2
-		BeamDuration: 20
-		ZOffset: 4000
-		SecondaryBeamZOffset: 4000
-	MinRange: 3c0
-	InvalidTargets: Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 96
-		Damage: 8000
-		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
-		InvalidTargets: Air
-		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 TurretLaserFire:
 	Inherits: ^FullDamage

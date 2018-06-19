@@ -15,6 +15,14 @@ empmil: EmpMil
 #Tiberian Sun
 intro: Tiberian Sun Title Music
 	Hidden: true
+cd_aoi: Act on Instinct (String Remix)
+	Extension: wav
+cd_gditheme: GDI Theme (String)
+	Extension: wav
+cd_nodtheme: Nod Theme (String)
+	Extension: wav
+cd_warfare: Warfare (String Remix)
+	Extension: wav
 approach: Approach
 defense: The Defense
 duskhour: Dusk Hour

@@ -207,7 +207,8 @@ Player:
 			deathclaw: 7
 			paladin: 4
 			stnk: 7
-			tripod: 7
+			anhltrpd: 7
+            avatar: 7
 			hmec: 1
 			howtlizer: 5
 			jug: 5
@@ -288,7 +289,8 @@ Player:
 			deathclaw: 12%
 			spiderarty: 12%
 			paladin: 12%
-			tripod: 12%
+			anhltrpd: 12%
+            avatar: 12%
 			wasp: 7%
 			basilisk: 5%
 			devourer: 5%

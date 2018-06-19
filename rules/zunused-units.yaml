@@ -2402,16 +2402,6 @@ CERBERUS:
 		MoveIntoShroud: true
 	Health:
 		HP: 45000
-	GrantConditionOnAttack:
-		Condition: LaserCharge
-		MaximumInstances: 7
-		RevokeDelay: 60
-	Armament@charge:
-		Weapon: CerberusLazorCharge
-	Armament:
-		Weapon: CerberusLazor
-		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
-		RequiresCondition: LaserCharge > 6
 	AttackHeli:
 		FacingTolerance: 64
 		Voice: Attack
